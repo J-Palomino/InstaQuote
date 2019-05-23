@@ -4,6 +4,15 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+var conditionOne = false;
+var conditionTwo = false;
+var condtionThree = false;
+var quantity;
+
+// switch(conditionOne) {
+//   case true
+// };
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -66,7 +75,9 @@ var handleFormSubmit = function(event) {
 
   var example = {
     text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    description: $exampleDescription.val().trim(),
+    //Added price for table insert test
+    quote: 23.99
   };
 
   if (!(example.text && example.description)) {
@@ -75,7 +86,8 @@ var handleFormSubmit = function(event) {
   }
 
   API.saveExample(example).then(function() {
-    refreshExamples();
+     // refreshExamples();
+    location.reload();
   });
 
   $exampleText.val("");
