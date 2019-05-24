@@ -1,3 +1,22 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  background-color: darkorange;
+  font-family: "Work Sans", sans-serif;
+}
+
+#loginForm {
+  position: absolute;
+  top: 100px;
+  right: 450px;
+}
+
+#logo {
+  width: 400px;
+}
+
+#register {
+  background: transparent;
+}
