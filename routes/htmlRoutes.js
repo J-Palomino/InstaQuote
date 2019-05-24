@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.User.findAll({}).then(function(dbExamples) {
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
@@ -25,5 +25,15 @@ module.exports = function(app) {
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
+  });
+
+  app.get("/api/user", function(req, res) {
+    db.User.findOne(
+      { where: { name: "admin@test" } }.then(function(result) {
+        res.render("example", {
+          User: result
+        });
+      })
+    );
   });
 };

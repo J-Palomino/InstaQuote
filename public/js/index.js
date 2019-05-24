@@ -5,7 +5,7 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 function newUser(name, password) {
-  $.POST(
+  $.post(
     "/api/user",
     {
       userName: name,
@@ -18,7 +18,7 @@ function newUser(name, password) {
 }
 
 function loginUser(name, password) {
-  $.GET(
+  $.get(
     "/api/user",
     {
       userName: name,
@@ -30,9 +30,20 @@ function loginUser(name, password) {
   );
 }
 
+//loginUser();
+// newUser();
+
 // switch(conditionOne) {
 //   case true
 // };
+
+$(".btn").click(function(event) {
+  event.preventDefault();
+  console.log("hey");
+  var name = $("#inputEmail").val();
+  var password = $("inputPassword").val();
+  loginUser(name, password);
+});
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -96,9 +107,7 @@ var handleFormSubmit = function(event) {
 
   var example = {
     text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim(),
-    //Added price for table insert test
-    quote: 23.99
+    description: $exampleDescription.val().trim()
   };
 
   if (!(example.text && example.description)) {
