@@ -4,10 +4,31 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
-var conditionOne = false;
-var conditionTwo = false;
-var condtionThree = false;
-var quantity;
+function newUser(name, password) {
+  $.POST(
+    "/api/user",
+    {
+      userName: name,
+      password: password
+    },
+    function() {
+      console.log("Welcome New User %s", name);
+    }
+  );
+}
+
+function loginUser(name, password) {
+  $.GET(
+    "/api/user",
+    {
+      userName: name,
+      password: password
+    },
+    function() {
+      console.log("Welcome back %s!", name);
+    }
+  );
+}
 
 // switch(conditionOne) {
 //   case true
@@ -86,7 +107,7 @@ var handleFormSubmit = function(event) {
   }
 
   API.saveExample(example).then(function() {
-     // refreshExamples();
+    // refreshExamples();
     location.reload();
   });
 
