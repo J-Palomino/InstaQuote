@@ -6,6 +6,11 @@
 // var $submitBtn = $("#submit");
 // var $exampleList = $("#example-list");
 
+function productSelect() {
+  //productBuild;
+}
+productSelect();
+
 function newUser(name, password) {
   $.post(
     "/api/user",
@@ -23,12 +28,24 @@ function loginUser(name, password) {
   $.get("/api/users/" + name).then(function(data) {
     if (password === data.password) {
       location.replace("/user/home"), console.log("Welcome back %s!", data);
+      // $(".optionSelection").hide();
     } else {
       console.log("failure");
     }
   });
 }
 
+$(document).ready(function() {
+  $(".optionSelection").hide();
+});
+
+$(".choice").click(function() {
+  var productBuild = $("this").data("id");
+  $(".page").empty();
+  $(".optionSelection").show();
+  return productBuild;
+});
+//
 $(".register").click(function(event) {
   event.preventDefault();
   var name = $("#registerEmail").val();
