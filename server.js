@@ -12,6 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use((req,res,next) => {
+  console.log('req.url',req.url);
+  console.log('req.method',req.method);
+  next();
+})
+
 // Handlebars
 app.engine(
   "handlebars",

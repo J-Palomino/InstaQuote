@@ -11,13 +11,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/user/home", function(req, res) {
+    db.User.findAll({}).then(function(dbExamples) {
+      res.render("home", {
+        msg: "Welcome!",
+        examples: dbExamples
+      });
+    });
+  });
+
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
+  app.get("/user/order", function(req, res) {
+    db.User.findOne({ where: { id: req.params.name } }).then(function(
       dbExample
     ) {
-      res.render("example", {
-        example: dbExample
+      res.render("order", {
+        users: dbExample
       });
     });
   });
@@ -27,13 +36,13 @@ module.exports = function(app) {
     res.render("404");
   });
 
-  app.get("/api/user", function(req, res) {
-    db.User.findOne(
-      { where: { name: "admin@test" } }.then(function(result) {
-        res.render("example", {
-          User: result
-        });
-      })
-    );
+  app.get("/api/user/:name", function(req, res) {
+    db.User.findOne({ where: { name: req.params.name } }).then(function(
+      result
+    ) {
+      res.render("example", {
+        User: result
+      });
+    });
   });
 };
