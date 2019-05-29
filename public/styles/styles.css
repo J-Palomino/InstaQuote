@@ -20,3 +20,8 @@ body {
 #register {
   background: transparent;
 }
+
+.navbar{
+  border: 2px dotted rgb(212, 171, 83);
+  border-radius:10px;
+}
