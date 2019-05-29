@@ -68,10 +68,51 @@ $(document).ready(function() {
 });
 
 $(".choice").click(function() {
-  var productBuild = $("this").data("id");
+  var orderBuild = $(this).data("id");
   $(".page").empty();
   $(".optionSelection").show();
-  return productBuild;
+
+  console.log(orderBuild);
+  switch (orderBuild) {
+    case "digPrint":
+      console.log("yes");
+      break;
+
+    case "stickers":
+      console.log("stickers");
+      break;
+
+    case "cutVinyl":
+      console.log("yes");
+      break;
+
+    case "banners":
+      console.log("yes");
+      break;
+
+    case "brochures":
+      console.log("yes");
+      break;
+
+    case "businessCards":
+      console.log("yes");
+      break;
+
+    case "posters":
+      console.log("yes");
+      break;
+
+    case "canPrints":
+      console.log("yes");
+      break;
+
+    case "flyers":
+      console.log("yes");
+      break;
+
+    default:
+      console.log("wrong");
+  }
 });
 //
 $(".register").click(function(event) {
