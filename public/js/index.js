@@ -18,21 +18,49 @@ function newUser(name, password) {
       userName: name,
       password: password
     },
-    function() {
+    function(result) {
+      console.log(result);
       console.log("Welcome New User %s", name);
+      alert("Welcome %s!", name);
+      location.replace("user/home");
     }
   );
 }
 
 function loginUser(name, password) {
   $.get("/api/users/" + name).then(function(data) {
-    if (password === data.password) {
-      location.replace("/user/home"), console.log("Welcome back %s!", data);
-      // $(".optionSelection").hide();
+    validPassword(password, data);
+  });
+}
+
+function userExists(name, password) {
+  $.get("/api/users/" + name).then(function(data) {
+    if (data === null) {
+      alert("USER DOES NOT EXIST");
+      return;
     } else {
-      console.log("failure");
+      loginUser(name, password);
     }
   });
+}
+
+function validPassword(password, data) {
+  if (password === data.password) {
+    location.replace("/user/home"), console.log("Welcome back %s!", data);
+    // $(".optionSelection").hide();
+  } else {
+    alert("INCORRECT PASSWORD");
+  }
+}
+
+function validateRegister(first, second) {
+  check = false;
+  if (first === second) {
+    return (check = true);
+  } else {
+    alert("Passwords do not match!");
+    return;
+  }
 }
 
 $(document).ready(function() {
@@ -40,17 +68,64 @@ $(document).ready(function() {
 });
 
 $(".choice").click(function() {
-  var productBuild = $("this").data("id");
+  var orderBuild = $(this).data("id");
   $(".page").empty();
   $(".optionSelection").show();
-  return productBuild;
+
+  console.log(orderBuild);
+  switch (orderBuild) {
+    case "digPrint":
+      console.log("yes");
+      break;
+
+    case "stickers":
+      console.log("stickers");
+      break;
+
+    case "cutVinyl":
+      console.log("yes");
+      break;
+
+    case "banners":
+      console.log("yes");
+      break;
+
+    case "brochures":
+      console.log("yes");
+      break;
+
+    case "businessCards":
+      console.log("yes");
+      break;
+
+    case "posters":
+      console.log("yes");
+      break;
+
+    case "canPrints":
+      console.log("yes");
+      break;
+
+    case "flyers":
+      console.log("yes");
+      break;
+
+    default:
+      console.log("wrong");
+  }
 });
 //
 $(".register").click(function(event) {
   event.preventDefault();
   var name = $("#registerEmail").val();
-  var password = $("#confirmPassword").val();
-  newUser(name, password);
+  var password1 = $("#registerPassword").val();
+  var password2 = $("#confirmPassword").val();
+  validateRegister(password1, password2);
+  if (!check) {
+    validate();
+  } else if (check) {
+    newUser(name, password2);
+  }
 });
 
 $("#login").click(function(event) {
@@ -58,7 +133,7 @@ $("#login").click(function(event) {
   console.log("hey");
   var name = $("#inputEmail").val();
   var password = $("#inputPassword").val();
-  loginUser(name, password);
+  userExists(name, password);
 });
 
 //I've commented out everything the starter file gave that I'm not using
