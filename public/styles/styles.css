@@ -7,6 +7,10 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
+hr {
+  border-bottom: solid peru 2px;
+}
+
 #loginForm {
   position: absolute;
   top: 100px;
@@ -21,7 +25,49 @@ body {
   background: transparent;
 }
 
-.navbar{
-  border: 2px dotted rgb(212, 171, 83);
-  border-radius:10px;
+.inputs {
+  border: solid peru 4px;
+}
+
+#login {
+  background: peru;
+  border: solid peru 5px;
+}
+
+#login:hover {
+  background: #d2691e;
+}
+
+#modal {
+  width: 200px;
+}
+
+#modalHeader {
+  font-size: 30px;
+}
+
+/*Styling for home page*/
+/*======================================================================*/
+.navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: peru;
+  border-bottom: solid #d2691e 3px;
+  z-index: 4;
+}
+
+#home-container {
+  margin-top: 10px;
+  background: peru;
+  height: 600px;
+}
+
+.nav-link {
+  position: relative;
+  top: 30px;
+  width: 125px;
+  margin-right: 1px;
+  left: 70px;
+  z-index: 4;
 }
