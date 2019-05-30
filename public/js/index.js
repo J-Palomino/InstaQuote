@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable prettier/prettier */
->>>>>>> 6cd612d744bb9a9e4c9e06a83b5c1cb0d179dcdf
 //This is commenting out the variables used inside of the starter files that I am not using
 
 // // Get references to page elements
@@ -22,92 +19,17 @@ function newUser(name, password) {
       userName: name,
       password: password
     },
-<<<<<<< HEAD
-    function() {
-      console.log("Welcome New User %s", name);
-=======
     function(result) {
       console.log(result);
       console.log("Welcome New User %s", name);
       alert("Welcome %s!", name);
       location.replace("user/home");
->>>>>>> 6cd612d744bb9a9e4c9e06a83b5c1cb0d179dcdf
     }
   );
 }
 
 function loginUser(name, password) {
   $.get("/api/users/" + name).then(function(data) {
-<<<<<<< HEAD
-    if (password === data.password) {
-      location.replace("/user/home"), console.log("Welcome back %s!", data);
-      // $(".optionSelection").hide();
-    } else {
-      console.log("failure");
-    }
-  });
-}
-
-$(document).ready(function() {
-  $(".optionSelection").hide();
-});
-
-$(".choice").click(function() {
-  var productBuild = $("this").data("id");
-  $(".page").empty();
-  $(".optionSelection").show();
-  return productBuild;
-});
-//
-$(".register").click(function(event) {
-  event.preventDefault();
-  var name = $("#registerEmail").val();
-  var password = $("#confirmPassword").val();
-  newUser(name, password);
-});
-
-$("#login").click(function(event) {
-  event.preventDefault();
-  console.log("hey");
-  var name = $("#inputEmail").val();
-  var password = $("#inputPassword").val();
-  loginUser(name, password);
-});
-
-//I've commented out everything the starter file gave that I'm not using
-
-//I left it in just in case I made a mistake
-
-//This is a prototype and rough skeleton of whats to come
-
-//$(".start").hide();
-// The API object contains methods for each kind of request we'll make
-// var API = {
-//   saveExample: function(example) {
-//     return $.ajax({
-//       headers: {
-//         "Content-Type": "application/json"
-//       },
-//       type: "POST",
-//       url: "api/examples",
-//       data: JSON.stringify(example)
-//     });
-//   },
-//   getExamples: function() {
-//     return $.ajax({
-//       url: "api/examples",
-//       type: "GET"
-//     });
-//   },
-//   deleteExample: function(id) {
-//     return $.ajax({
-//       url: "api/examples/" + id,
-//       type: "DELETE"
-//     });
-//   }
-// };
-
-=======
     validPassword(password, data);
   });
 }
@@ -248,7 +170,6 @@ $("#login").click(function(event) {
 //   }
 // };
 
->>>>>>> 6cd612d744bb9a9e4c9e06a83b5c1cb0d179dcdf
 // // refreshExamples gets new examples from the db and repopulates the list
 // var refreshExamples = function() {
 //   API.getExamples().then(function(data) {
