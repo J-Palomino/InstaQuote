@@ -1,3 +1,73 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+body {
+  background-color: darkorange;
+  font-family: "Work Sans", sans-serif;
+}
+
+hr {
+  border-bottom: solid peru 2px;
+}
+
+#loginForm {
+  position: absolute;
+  top: 100px;
+  right: 450px;
+}
+
+#logo {
+  width: 400px;
+}
+
+#register {
+  background: transparent;
+}
+
+.inputs {
+  border: solid peru 4px;
+}
+
+#login {
+  background: peru;
+  border: solid peru 5px;
+}
+
+#login:hover {
+  background: #d2691e;
+}
+
+#modal {
+  width: 200px;
+}
+
+#modalHeader {
+  font-size: 30px;
+}
+
+/*Styling for home page*/
+/*======================================================================*/
+.navbar {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: peru;
+  border-bottom: solid #d2691e 3px;
+  z-index: 4;
+}
+
+#home-container {
+  margin-top: 10px;
+  background: peru;
+  height: 600px;
+}
+
+.nav-link {
+  position: relative;
+  top: 30px;
+  width: 125px;
+  margin-right: 1px;
+  left: 70px;
+  z-index: 4;
+}
