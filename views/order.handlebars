@@ -41,71 +41,91 @@
     </div>
 
     <div class="row page">
-        <div class="col-3 offset-2 choice">
+        <div class="col-3 offset-2 choice" data-id="digPrint">
             <div class='card mt-4'>
                 <img class="card-img-top" src="../img/digitalprinting.jpg">
                 <div class="card-body">
-                    <h2 class="card-title">Product</h2>
+                    <h2 class="card-title">Digital Printing</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-3 offset-2">
+        <div class="col-3 offset-2 choice" data-id="stickers">
             <div class='card mt-4'>
                 <img class="card-img-top" src="../img/digitalprinting.jpg">
                 <div class="card-body">
-                    <h2 class="card-title">Product</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row page">
-        <div class="col-3  offset-2">
-            <div class='card mt-4'>
-                <img class="card-img-top" src="../img/digitalprinting.jpg">
-                <div class="card-body">
-                    <h2 class="card-title">Product</h2>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-3 offset-2">
-            <div class='card mt-4'>
-                <img class="card-img-top" src="../img/digitalprinting.jpg">
-                <div class="card-body">
-                    <h2 class="card-title">Product</h2>
+                    <h2 class="card-title">Stickers</h2>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row page">
-        <div class="col-3 offset-2">
+        <div class="col-3  offset-2 choice" data-id="cutVinyl">
             <div class='card mt-4'>
                 <img class="card-img-top" src="../img/digitalprinting.jpg">
                 <div class="card-body">
-                    <h2 class="card-title">Product</h2>
+                    <h2 class="card-title">Cut Vinyl</h2>
                 </div>
             </div>
         </div>
 
-        <div class="col-3 offset-2">
+        <div class="col-3 offset-2 choice" data-id="banners">
             <div class='card mt-4'>
                 <img class="card-img-top" src="../img/digitalprinting.jpg">
                 <div class="card-body">
-                    <h2 class="card-title">Product</h2>
+                    <h2 class="card-title">Banners</h2>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="row page">
-        <div class="col-3 offset-2">
+        <div class="col-3 offset-2 choice" data-id="brochures">
             <div class='card mt-4'>
                 <img class="card-img-top" src="../img/digitalprinting.jpg">
                 <div class="card-body">
-                    <h2 class="card-title">Product</h2>
+                    <h2 class="card-title">Brochures</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 offset-2 choice" data-id="businessCards">
+            <div class='card mt-4'>
+                <img class="card-img-top" src="../img/digitalprinting.jpg">
+                <div class="card-body">
+                    <h2 class="card-title">Business Cards</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row page">
+        <div class="col-3 offset-2 choice" data-id="posters">
+            <div class='card mt-4'>
+                <img class="card-img-top" src="../img/digitalprinting.jpg">
+                <div class="card-body">
+                    <h2 class="card-title">Posters</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 offset-2 choice" data-id="canPrints">
+            <div class='card mt-4'>
+                <img class="card-img-top" src="../img/digitalprinting.jpg">
+                <div class="card-body">
+                    <h2 class="card-title">Canvas Prints</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row page">
+        <div class="col-3 offset-2 choice" data-id="flyers">
+            <div class='card mt-4'>
+                <img class="card-img-top" src="../img/digitalprinting.jpg">
+                <div class="card-body">
+                    <h2 class="card-title">Flyers</h2>
                 </div>
             </div>
         </div>
@@ -114,7 +134,7 @@
 
 
 
-    <div class="row optionSelection">
+    <div class="row">
         <div class="input-group mb-4 mt-4">
             <select class="custom-select" id="servicesGeneral">
                 <option selected>Choose...</option>
@@ -135,11 +155,55 @@
     </div>
 
     <div class="input-group mb-4 optionSelection">
-        <select class="custom-select start" id="inputGroupSelect02">
-            <option selected>Choose...</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
+        <select class="custom-select start" id="quantity">
+            <option selected>How Many Would You Like...</option>
+            <option value="1">500</option>
+            <option value="2">1000</option>
+            <option value="3">2000</option>
+            <option value="4">2500</option>
+            <option value="5">5000</option>
+            <option value="6">10000</option>
+            <option value="7">20000</option>
+        </select>
+        <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+        </div>
+    </div>
+
+    <div class="input-group mb-4 optionSelection">
+        <select class="custom-select start businessCard" id="businessSize">
+            <option selected>What Size Would You Like...</option>
+            <option value="1">14pt C2S</option>
+            <option value="2">16pt C2S</option>
+            <option value="3">100# Linen</option>
+        </select>
+        <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+        </div>
+    </div>
+
+    <div class="input-group mb-4 optionSelection">
+        <select class="custom-select start flyer" id="flyerSize">
+            <option selected>What Size Would You Like...</option>
+            <option value="1">5.5" x 8.5"</option>
+            <option value="2">4.25" x 6"</option>
+            <option value="3">5" x 7"</option>
+            <option value="4">6.5" x 9"</option>
+            <option value="5">6" x 11"</option>
+        </select>
+        <div class="input-group-append">
+            <label class="input-group-text" for="inputGroupSelect02">Options</label>
+        </div>
+    </div>
+
+    <div class="input-group mb-4 optionSelection">
+        <select class="custom-select start" id="shipping">
+            <option selected>Shipping Options...</option>
+            <option value="1">Next Day</option>
+            <option value="2">2-4 Business Days</option>
+            <option value="3">5" x 7"</option>
+            <option value="4">6.5" x 9"</option>
+            <option value="5">6" x 11"</option>
         </select>
         <div class="input-group-append">
             <label class="input-group-text" for="inputGroupSelect02">Options</label>
