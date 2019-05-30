@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 //This is commenting out the variables used inside of the starter files that I am not using
 
 // // Get references to page elements
@@ -74,44 +75,44 @@ $(".choice").click(function() {
 
   console.log(orderBuild);
   switch (orderBuild) {
-    case "digPrint":
-      console.log("yes");
-      break;
+  case "digPrint":
+    console.log("yes");
+    break;
 
-    case "stickers":
-      console.log("stickers");
-      break;
+  case "stickers":
+    console.log("stickers");
+    break;
 
-    case "cutVinyl":
-      console.log("yes");
-      break;
+  case "cutVinyl":
+    console.log("yes");
+    break;
 
-    case "banners":
-      console.log("yes");
-      break;
+  case "banners":
+    console.log("yes");
+    break;
 
-    case "brochures":
-      console.log("yes");
-      break;
+  case "brochures":
+    console.log("yes");
+    break;
 
-    case "businessCards":
-      console.log("yes");
-      break;
+  case "businessCards":
+    console.log("yes");
+    break;
 
-    case "posters":
-      console.log("yes");
-      break;
+  case "posters":
+    console.log("yes");
+    break;
 
-    case "canPrints":
-      console.log("yes");
-      break;
+  case "canPrints":
+    console.log("yes");
+    break;
 
-    case "flyers":
-      console.log("yes");
-      break;
+  case "flyers":
+    console.log("yes");
+    break;
 
-    default:
-      console.log("wrong");
+  default:
+    console.log("wrong");
   }
 });
 //
