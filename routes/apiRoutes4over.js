@@ -1,4 +1,5 @@
-var db = require("../models");
+/* eslint-disable camelcase */
+//var db = require("../models");
 const axios = require("axios");
 
 var baseURL = "https://sandbox-api.4over.com/";
@@ -36,7 +37,9 @@ module.exports = function(app) {
         for (i = 0; i < resLength; i++) {
           var description = response.data.entities[i].product_description;
           if (
+            // eslint-disable-next-line quotes
             description.indexOf('2" X 3.5') > -1 ||
+            // eslint-disable-next-line quotes
             description.indexOf('2" x 3.5') > -1
           ) {
             prodDesc.push(response.data.entities[i]);
@@ -104,5 +107,5 @@ module.exports = function(app) {
 
   //Build Quote - Store in database and return to front end
   //Need user id along with all relevant product options
-  app.post("/api/4over/quote", function(req, res) {});
+  //app.post("/api/4over/quote", function(req, res) {});
 };
