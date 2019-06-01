@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: darkorange;
+  background-color: #d2691e;
   font-family: "Work Sans", sans-serif;
 }
 
@@ -70,4 +70,44 @@ hr {
   margin-right: 1px;
   left: 70px;
   z-index: 4;
+}
+
+/*Styling for order page*/
+
+#order-header {
+  background: grey;
+}
+
+.order-image {
+  width: 325px;
+  height: 300px;
+  box-shadow: solid black 5px 5px;
+  border-radius: 50;
+}
+
+.card {
+  border-radius: 30px;
+  background: #ffffff;
+  box-shadow: 5px 5px black;
+  margin: 30px;
+}
+
+.orderModalImages {
+  position: relative;
+  left: 450px;
+  height: 300px;
+  width: 300px;
+}
+
+.orderModalContent {
+  position: relative;
+  top: -300px;
+  height: 100px;
+}
+
+#business-card-modal {
+}
+
+#business-card-dropdown {
+  width: 400px;
 }
