@@ -54,6 +54,8 @@ function validPassword(password, data) {
   }
 }
 
+
+
 function validateRegister(first, second) {
   check = false;
   if (first === second) {
