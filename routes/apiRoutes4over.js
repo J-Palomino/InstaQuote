@@ -2,6 +2,9 @@
 //var db = require("../models");
 const axios = require("axios");
 
+const markup = 2.0;
+const taxRate = 0.086;
+
 var baseURL = "https://sandbox-api.4over.com/";
 var apiKey = "?apikey=onlinedigitalmediallc";
 var apiSignature =
@@ -107,5 +110,44 @@ module.exports = function(app) {
 
   //Build Quote - Store in database and return to front end
   //Need user id along with all relevant product options
-  //app.post("/api/4over/quote", function(req, res) {});
+  app.post("/api/4over/quote", function(req, res) {
+    var rb = req.body;
+    var searchString = "printproducts/productquote";
+    var productString = "&product_uuid=" + rb.product_uuid;
+    productString += "&colorspec_uuid=" + rb.colorspec_uuid;
+    productString += "&runsize_uuid=" + rb.runsize_uuid;
+    productString += "&turnaroundtime_uuid=" + rb.turnaroundtime_uuid;
+    if (rb.option_uuid.length > 0) {
+      for (i = 0; i < rb.option_uuid.length; i++) {
+        productString += "&options[]=";
+        productString += rb.option_uuid[i];
+      }
+    }
+    var queryString =
+      baseURL + searchString + apiKey + apiSignature + productString;
+    console.log(queryString);
+    axios
+      .get(queryString)
+      .then(response => {
+        var rd = response.data;
+        console.log("ODG Cost: $" + parseFloat(rd.total_price).toFixed(2));
+        var quote = (parseFloat(rd.total_price) * markup * taxRate).toFixed(2);
+        console.log("Customer Quote: $" + quote);
+        var customerMarkup = Math.round(
+          parseFloat(rd.total_price) * markup
+        ).toFixed(2);
+        var customerTax = Math.round(
+          parseFloat(customerMarkup) * taxRate
+        ).toFixed(2);
+        rd.customer_price = customerMarkup;
+        rd.customer_tax = customerTax;
+        rd.customer_total = Math.round(
+          parseFloat(customerMarkup) + parseFloat(customerTax)
+        ).toFixed(2);
+        res.json(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  });
 };
