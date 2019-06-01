@@ -64,59 +64,84 @@ function validateRegister(first, second) {
   }
 }
 
+function prodIdGrab(){
+  //var id = $("custom-selection").data("value");
+  console.log($("option:selected").attr("values"));
+  //$(this) + $(" option:selected").attr("values"),
+}
+
+function conditions(id){
+  $.get("/api/4over/options/"+id).then(function(data){
+    console.log(data);
+    $.post("/api/4over/quote", {
+      user_id: "2",
+      product_uuid: id,
+      colorspec_uuid: data.
+    }
+    );
+  })
+
+  ;}
+
 $(document).ready(function() {
   $(".optionSelection").hide();
 });
 
-//$(".choice").click(function() {
-//   //var orderBuild = $(this).data("id");
-//   //$(".page").empty();
-//   //$(".optionSelection").show();
+$(".choice").click(function() {
+  var orderBuild = $(this).data("id");
+  //$(".page").empty();
+  //$(".optionSelection").show();
 
-//   console.log(orderBuild);
-//   switch (orderBuild) {
-//   case "digPrint":
-//     console.log("yes");
-//     break;
+  console.log(orderBuild);
+  switch (orderBuild) {
+  case "digPrint":
+    console.log("yes");
+    break;
 
-//   case "stickers":
-//     console.log("stickers");
-//     break;
+  case "stickers":
+    console.log("stickers");
+    break;
 
-//   case "cutVinyl":
-//     console.log("yes");
-//     break;
+  case "cutVinyl":
+    console.log("yes");
+    break;
 
-//   case "banners":
-//     console.log("yes");
-//     break;
+  case "banners":
+    console.log("yes");
+    break;
 
-//   case "brochures":
-//     console.log("yes");
-//     break;
+  case "brochures":
+    console.log("yes");
+    break;
 
-//   case "businessCards":
-//     $("#cardsModal").show();
-//     console.log("yes");
-//     break;
+  case "businessCards":
+    $("#busCardModal").modal("show");
+    $("#gloss").click(function(){
+      var id = $("option:selected").attr("values");
+      conditions(id);
+      console.log("I clicked it");
+    });
+    //switch()
+    console.log("yes");
+    break;
 
-//   case "posters":
-//     console.log("yes");
-//     break;
+  case "posters":
+    console.log("yes");
+    break;
 
-//   case "canPrints":
-//     console.log("yes");
-//     break;
+  case "canPrints":
+    console.log("yes");
+    break;
 
-//   case "flyers":
-//     console.log("yes");
-//     break;
+  case "flyers":
+    console.log("yes");
+    break;
 
-//   default:
-//     console.log("wrong");
-//   }
-// });
-//
+  default:
+    console.log("wrong");
+  }
+});
+
 $(".register").click(function(event) {
   event.preventDefault();
   var name = $("#registerEmail").val();

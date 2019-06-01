@@ -174,7 +174,7 @@
 
 
 
-    <div class="modal fade bd-example-modal-lg" id="business-card-modal" tabindex="-1" role="dialog"
+    <div class="modal fade bd-example-modal-lg" id="busCardModal" tabindex="-1" role="dialog"
         aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -198,10 +198,15 @@
                                     aria-expanded="false">
                                     Select an option
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Gloss - None</a>
-                                    <a class="dropdown-item" href="#">Gloss - One Side</a>
-                                    <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                                <div class="form-group">
+                                    <label for="gloss"><strong>Standard
+                                        </strong></label>
+                                    <select class="custom-select" id="gloss">
+                                        <option selected>Choose One . . .</option>
+                                        <option values="f76b1ef6-184b-4e0d-96fa-426fd7b3dd1a">Gloss - None</option>
+                                        <option values="86172f87-0296-49dc-9b5b-87002a6c4ab7">Gloss - One Side</option>
+                                        <option values="395fdc45-f6ea-4f7f-a809-2d054ac5bf73">Gloss - Both Sides</option>
+                                    </select>
                                 </div>
                             </div>
                             <br>
