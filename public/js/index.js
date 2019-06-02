@@ -64,24 +64,39 @@ function validateRegister(first, second) {
   }
 }
 
-function prodIdGrab(){
+function prodIdGrab() {
   //var id = $("custom-selection").data("value");
   console.log($("option:selected").attr("values"));
   //$(this) + $(" option:selected").attr("values"),
 }
 
-function conditions(id){
-  $.get("/api/4over/options/"+id).then(function(data){
-    console.log(data);
-    $.post("/api/4over/quote", {
-      user_id: "2",
-      product_uuid: id,
-      colorspec_uuid: data.
-    }
-    );
-  })
+function quoteGrab(a, b, c, d, e) {
+  $.post("/api/4over/quote/", {
+    user_id: 82,
+    product_uuid: a,
+    colorspec_uuid: b,
+    runsize__uuid: c,
+    turnaroundtime_uuid: d,
+    option_uuid: e
+  }).then(function(response) {
+    console.log(response);
+  });
+}
 
-  ;}
+function conditions(id) {
+  $.get("/api/4over/options/" + id).then(function(data) {
+    //$("#busCardModal").modal("show");
+    $("#levelTwoModal").modal("show");
+    console.log(data.product_option_groups[0].options[0].option_uuid);
+    var a = data.product_option_groups[0].options[0].option_uuid;
+    var b = data.product_option_groups[1].options[1].option_uuid;
+    var c = data.product_option_groups[2].options[1].option_uuid;
+    var d = data.product_option_groups[3].options[1].option_uuid;
+    var e = data.product_option_groups[4].options[1].option_uuid;
+    quoteGrab(a, b, c, d, e);
+    console.log(data);
+  });
+}
 
 $(document).ready(function() {
   $(".optionSelection").hide();
@@ -116,9 +131,36 @@ $(".choice").click(function() {
 
   case "businessCards":
     $("#busCardModal").modal("show");
-    $("#gloss").click(function(){
+    //  {
+    //   $(".modal-body").empty();
+    //   $(this).show();
+    //}
+    $("#gloss").click(function() {
+      // if ($("option:selected").attr("values")) {
+      //   return;
+      // } else {
       var id = $("option:selected").attr("values");
-      conditions(id);
+      console.log(id);
+      if (id !== undefined) {
+        //conditions(id);
+        console.log($(this).val());
+        $(".orderModalContent").empty();
+        $("#busImg").remove();
+        var chosen = $("<h1>");
+        chosen.html("You've chosen: <br>" + $(this).val());
+        var confirm = $("<br><h2>");
+        confirm.text("Is this correct?");
+        chosen.append(confirm);
+        $("#exampleModalLongTitle").append(chosen);
+        $(".save").click(function() {
+          $("#busCardModal").modal("hide");
+          conditions(id);
+        });
+        //id.show();
+      }
+
+      // }
+
       console.log("I clicked it");
     });
     //switch()
