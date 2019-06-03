@@ -70,14 +70,97 @@ function prodIdGrab() {
   //$(this) + $(" option:selected").attr("values"),
 }
 
-function quoteGrab(a, b, c, d, e) {
+function dropdowns(id, data){
+  var form = $("<div />");
+  form.attr("class", "form-group");
+  
+  
+  
+
+  var submit = $("<button>");
+  submit.attr("class", "btn btn-primary").attr("id", "submit");
+  submit.text("Submit");
+  submit.css("float", "right");
+  var orderQuery = [id];
+ 
+  
+  
+  //dropdown.attr("id", "options");
+  
+  
+  //option.attr("values", data.product_option_groups[i]);
+  
+  
+  for(var i = 0; i < data.product_option_groups.length; i++){
+
+    $(".modal-body").empty();
+    
+    
+
+    var dropdown = $("<select />");
+    dropdown.attr("class","custom-select");
+    dropdown.attr("id", i);
+
+    form.append(dropdown);
+    // var label = $("<label>");
+    // label.attr("for", "custom-select");
+    // label.text(data.product_option_groups[i].product_option_group_name);
+    var title = $("<h2>");
+    title.text(data.product_option_groups[i].product_option_group_name);
+    //console.log(data.product_option_groups[i].product_option_group_name);
+    dropdown.prepend(title);
+    
+    dropdown.append("UUU" + data.product_option_groups[i].product_option_group_name);
+    function diut(i){
+
+      for(var v =0; v < data.product_option_groups[i].options.length; v++){
+        var option = $("<option>").appendTo(dropdown);
+        option.attr("values", data.product_option_groups[i].options[v].option_uuid);
+        
+        option.append(data.product_option_groups[i].options[v].option_description);
+      }
+      
+    }
+    diut(i);
+
+   
+    //var a = id;
+    
+    // var b = 
+    // var c = data.product_option_groups[1].options[1].option_uuid;
+    // var d = data.product_option_groups[2].options[1].option_uuid;
+    // var e = data.product_option_groups[3].options[1].option_uuid;
+    // var f = data.product_option_groups[4].options[1].option_uuid;
+
+  }
+  $(".modal-body").append(form);
+  $(".modal-body").append(submit);
+
+  console.log(orderQuery);
+  //
+  $("#submit").click(function(event){
+    event.preventDefault();
+    for(var j =0;j<data.product_option_groups.length;j++){
+      orderQuery.push($("#"+j+" option:selected").attr("values"));
+      //if(j === data.product_option_groups.length){
+      
+      //}
+    }
+    quoteGrab(orderQuery);
+    
+  });
+}
+
+function quoteGrab(orderQuery) {
   $.post("/api/4over/quote/", {
-    user_id: 82,
-    product_uuid: a,
-    colorspec_uuid: b,
-    runsize__uuid: c,
-    turnaroundtime_uuid: d,
-    option_uuid: e
+    //user_id: 82,
+    product_uuid: orderQuery[0],
+    orientation_uuid: orderQuery[1],
+    colorspec_uuid: orderQuery[2],
+    runsize_uuid: orderQuery[3],
+    option_uuid: orderQuery[4],
+    turnaroundtime_uuid: orderQuery[5]
+    
   }).then(function(response) {
     console.log(response);
   });
@@ -85,16 +168,9 @@ function quoteGrab(a, b, c, d, e) {
 
 function conditions(id) {
   $.get("/api/4over/options/" + id).then(function(data) {
-    //$("#busCardModal").modal("show");
-    $("#levelTwoModal").modal("show");
-    console.log(data.product_option_groups[0].options[0].option_uuid);
-    var a = data.product_option_groups[0].options[0].option_uuid;
-    var b = data.product_option_groups[1].options[1].option_uuid;
-    var c = data.product_option_groups[2].options[1].option_uuid;
-    var d = data.product_option_groups[3].options[1].option_uuid;
-    var e = data.product_option_groups[4].options[1].option_uuid;
-    quoteGrab(a, b, c, d, e);
-    console.log(data);
+    $("#busCardModal").modal("show");
+
+    dropdowns(id, data);
   });
 }
 
@@ -155,6 +231,9 @@ $(".choice").click(function() {
         $(".save").click(function() {
           $("#busCardModal").modal("hide");
           conditions(id);
+          $("#exampleModalLongTitle").text("Please select the options");
+          
+          
         });
         //id.show();
       }

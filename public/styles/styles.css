@@ -105,6 +105,10 @@ hr {
   height: 100px;
 }
 
+.front{
+  float:right;
+}
+
 #business-card-modal {
 }
 
