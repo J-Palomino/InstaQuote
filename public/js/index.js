@@ -28,12 +28,6 @@ function newUser(name, password) {
   );
 }
 
-function loginUser(name, password) {
-  $.get("/api/users/" + name).then(function(data) {
-    validPassword(password, data);
-  });
-}
-
 function userExists(name, password) {
   $.get("/api/users/" + name).then(function(data) {
     if (data === null) {
@@ -45,16 +39,31 @@ function userExists(name, password) {
   });
 }
 
-function validPassword(password, data) {
-  if (password === data.password) {
-    location.replace("/user/home"), console.log("Welcome back %s!", data);
-    // $(".optionSelection").hide();
-  } else {
-    alert("INCORRECT PASSWORD");
-  }
+function loginUser(name, password) {
+  console.log(name +password);
+  $.post("/api/usern/", {
+    name: name,
+    password: password
+  }).then(function(results) {
+    // console.log(result);
+    if (results) {
+      location.replace("/user/home");
+      console.log(results);
+    } else {
+      alert("incorrect pass");
+    }
+  });
 }
 
-
+// function validPassword(password, data) {
+//   if (password === data.password) {
+//     location.replace("/user/home"),
+//     console.log("Welcome back " + data.name + "!", data);
+//     // $(".optionSelection").hide();
+//   } else {
+//     alert("INCORRECT PASSWORD");
+//   }
+// }
 
 function validateRegister(first, second) {
   check = false;
@@ -134,7 +143,7 @@ $(".register").click(function(event) {
 
 $("#login").click(function(event) {
   event.preventDefault();
-  console.log("hey");
+  console.log("login button clicked");
   var name = $("#inputEmail").val();
   var password = $("#inputPassword").val();
   userExists(name, password);

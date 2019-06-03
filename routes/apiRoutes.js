@@ -24,6 +24,16 @@ module.exports = function(app) {
     });
   });
 
+  app.post("/api/usern/", function(req, res) {
+    console.log("here");
+    db.User.findOne({ where: { name: req.body.name } }).then(function(
+      dbExamples
+    ) {
+      let goodpass = bcrypt.compareSync(req.body.password, dbExamples.password);
+      res.json(goodpass);
+    });
+  });
+
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(
