@@ -70,35 +70,46 @@ function prodIdGrab() {
   //$(this) + $(" option:selected").attr("values"),
 }
 
-function dropdowns(id, data){
+function addOrder(order) {
+  var orderCard = $("<div").attr("class", "card");
+  $("<img>")
+    .attr("src", "/img/BusinessCard.jpg")
+    .attr("id", "orderImg")
+    .attr("class", "card-img-top")
+    .appendTo(orderCard);
+  $("<div>")
+    .attr("class", "card-body")
+    .attr("id", "orderBody")
+    .appendTo("#orderImg");
+  $("<h1>")
+    .text("Order Title")
+    .wrap("#orderBody");
+  //orderCard.text("YES");
+  orderCard.appendTo($(".orderList"));
+}
+
+function dropdowns(id, data) {
   var form = $("<div />");
   form.attr("class", "form-group");
-  
-  
-  
 
   var submit = $("<button>");
-  submit.attr("class", "btn btn-primary").attr("id", "submit");
+  submit
+    .attr("class", "btn btn-primary")
+    .attr("id", "submit")
+    .attr("href", "user/home");
   submit.text("Submit");
   submit.css("float", "right");
   var orderQuery = [id];
- 
-  
-  
-  //dropdown.attr("id", "options");
-  
-  
-  //option.attr("values", data.product_option_groups[i]);
-  
-  
-  for(var i = 0; i < data.product_option_groups.length; i++){
 
+  //dropdown.attr("id", "options");
+
+  //option.attr("values", data.product_option_groups[i]);
+
+  for (var i = 0; i < data.product_option_groups.length; i++) {
     $(".modal-body").empty();
-    
-    
 
     var dropdown = $("<select />");
-    dropdown.attr("class","custom-select");
+    dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
 
     form.append(dropdown);
@@ -109,45 +120,49 @@ function dropdowns(id, data){
     title.text(data.product_option_groups[i].product_option_group_name);
     //console.log(data.product_option_groups[i].product_option_group_name);
     dropdown.prepend(title);
-    
-    dropdown.append("UUU" + data.product_option_groups[i].product_option_group_name);
-    function diut(i){
 
-      for(var v =0; v < data.product_option_groups[i].options.length; v++){
+    dropdown.append(
+      "UUU" + data.product_option_groups[i].product_option_group_name
+    );
+    function diut(i) {
+      for (var v = 0; v < data.product_option_groups[i].options.length; v++) {
         var option = $("<option>").appendTo(dropdown);
-        option.attr("values", data.product_option_groups[i].options[v].option_uuid);
-        
-        option.append(data.product_option_groups[i].options[v].option_description);
+        option.attr(
+          "values",
+          data.product_option_groups[i].options[v].option_uuid
+        );
+
+        option.append(
+          data.product_option_groups[i].options[v].option_description
+        );
       }
-      
     }
     diut(i);
 
-   
     //var a = id;
-    
-    // var b = 
+
+    // var b =
     // var c = data.product_option_groups[1].options[1].option_uuid;
     // var d = data.product_option_groups[2].options[1].option_uuid;
     // var e = data.product_option_groups[3].options[1].option_uuid;
     // var f = data.product_option_groups[4].options[1].option_uuid;
-
   }
   $(".modal-body").append(form);
   $(".modal-body").append(submit);
 
   console.log(orderQuery);
   //
-  $("#submit").click(function(event){
+  $("#submit").click(function(event) {
     event.preventDefault();
-    for(var j =0;j<data.product_option_groups.length;j++){
-      orderQuery.push($("#"+j+" option:selected").attr("values"));
+    for (var j = 0; j < data.product_option_groups.length; j++) {
+      orderQuery.push($("#" + j + " option:selected").attr("values"));
       //if(j === data.product_option_groups.length){
-      
+
       //}
     }
+    $(".orderList").empty();
     quoteGrab(orderQuery);
-    
+    addOrder();
   });
 }
 
@@ -160,7 +175,6 @@ function quoteGrab(orderQuery) {
     runsize_uuid: orderQuery[3],
     option_uuid: orderQuery[4],
     turnaroundtime_uuid: orderQuery[5]
-    
   }).then(function(response) {
     console.log(response);
   });
@@ -232,8 +246,6 @@ $(".choice").click(function() {
           $("#busCardModal").modal("hide");
           conditions(id);
           $("#exampleModalLongTitle").text("Please select the options");
-          
-          
         });
         //id.show();
       }
