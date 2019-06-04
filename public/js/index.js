@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 //This is commenting out the variables used inside of the starter files that I am not using
 
-
 //user registration function upon click that runs the validation for the new user
 $(".register").click(function(event) {
   event.preventDefault();
@@ -25,7 +24,7 @@ $("#login").click(function(event) {
   userExists(name, password);
 });
 
-//Takes in two arguments to create a user entry using the user model, and 
+//Takes in two arguments to create a user entry using the user model, and
 //changing the webpage to the website homepage
 function newUser(name, password) {
   $.post(
@@ -78,7 +77,7 @@ function validPassword(password, data) {
 }
 
 //validation checking if the use registering has entered the same two
-//passwords 
+//passwords
 function validateRegister(first, second) {
   check = false;
   if (first === second) {
@@ -89,7 +88,7 @@ function validateRegister(first, second) {
   }
 }
 
-//Creates a card on the main page after completing an order, containing the order 
+//Creates a card on the main page after completing an order, containing the order
 //and product information
 function addOrder(order) {
   var orderCard = $("<div").attr("class", "card");
@@ -156,7 +155,6 @@ function dropdowns(id, data) {
       }
     }
     diut(i);
-
   }
   $(".modal-body").append(form);
   $(".modal-body").append(submit);
@@ -176,7 +174,7 @@ function dropdowns(id, data) {
 }
 
 //creates a post request to the 4over api with the details of the order
-//and passing the final quote information and product details into 
+//and passing the final quote information and product details into
 //the function that puts it into a card on the main page
 function quoteGrab(orderQuery) {
   $.post("/api/4over/quote/", {
@@ -241,8 +239,9 @@ $(".choice").click(function() {
     $("#busCardModal").modal("show");
     //grabs values from the specific type of the chosen product
     //and prompts the user with a confirmation
-    $("#gloss").click(function() {
-      var id = $("option:selected").attr("values");
+    $(".custom-select").click(function() {
+      var id = $("option:selected", this).attr("values");
+      console.log($(this).val());
       console.log(id);
       if (id !== undefined) {
         //conditions(id);
@@ -258,6 +257,7 @@ $(".choice").click(function() {
         //sends you to a new modal to choose the second stage of details
         //after confirmation
         $(".save").click(function() {
+          console.log("clicked");
           $("#busCardModal").modal("hide");
           conditions(id);
           $("#exampleModalLongTitle").text("Please select the options");
