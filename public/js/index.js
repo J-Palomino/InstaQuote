@@ -1,17 +1,32 @@
 /* eslint-disable prettier/prettier */
 //This is commenting out the variables used inside of the starter files that I am not using
 
-// // Get references to page elements
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
-// var $submitBtn = $("#submit");
-// var $exampleList = $("#example-list");
 
-function productSelect() {
-  //productBuild;
-}
-productSelect();
+//user registration function upon click that runs the validation for the new user
+$(".register").click(function(event) {
+  event.preventDefault();
+  var name = $("#registerEmail").val();
+  var password1 = $("#registerPassword").val();
+  var password2 = $("#confirmPassword").val();
+  validateRegister(password1, password2);
+  if (!check) {
+    validate();
+  } else if (check) {
+    newUser(name, password2);
+  }
+});
 
+//login logic that runs validation and allows the user to proceed
+$("#login").click(function(event) {
+  event.preventDefault();
+  console.log("hey");
+  var name = $("#inputEmail").val();
+  var password = $("#inputPassword").val();
+  userExists(name, password);
+});
+
+//Takes in two arguments to create a user entry using the user model, and 
+//changing the webpage to the website homepage
 function newUser(name, password) {
   $.post(
     "/api/user",
@@ -28,12 +43,18 @@ function newUser(name, password) {
   );
 }
 
+//Runs a get request on the route using the user name, passed in as an argument,
+//runs a validation function on the password and the returning data
+//used for a user logging in
 function loginUser(name, password) {
   $.get("/api/users/" + name).then(function(data) {
     validPassword(password, data);
   });
 }
 
+//Runs a get request using the username passed in for the route, runs validation
+//for user registration, to see if the requesting username for registration
+//is already being used
 function userExists(name, password) {
   $.get("/api/users/" + name).then(function(data) {
     if (data === null) {
@@ -45,6 +66,8 @@ function userExists(name, password) {
   });
 }
 
+//Validation to check if the user password entered matching the corresponding
+//password in the database
 function validPassword(password, data) {
   if (password === data.password) {
     location.replace("/user/home"), console.log("Welcome back %s!", data);
@@ -54,6 +77,8 @@ function validPassword(password, data) {
   }
 }
 
+//validation checking if the use registering has entered the same two
+//passwords 
 function validateRegister(first, second) {
   check = false;
   if (first === second) {
@@ -64,12 +89,8 @@ function validateRegister(first, second) {
   }
 }
 
-function prodIdGrab() {
-  //var id = $("custom-selection").data("value");
-  console.log($("option:selected").attr("values"));
-  //$(this) + $(" option:selected").attr("values"),
-}
-
+//Creates a card on the main page after completing an order, containing the order 
+//and product information
 function addOrder(order) {
   var orderCard = $("<div").attr("class", "card");
   $("<img>")
@@ -88,10 +109,11 @@ function addOrder(order) {
   orderCard.appendTo($(".orderList"));
 }
 
+//creates the set of dropdowns to choose the additional options
+//pertaining to the previously selected product
 function dropdowns(id, data) {
   var form = $("<div />");
   form.attr("class", "form-group");
-
   var submit = $("<button>");
   submit
     .attr("class", "btn btn-primary")
@@ -101,17 +123,12 @@ function dropdowns(id, data) {
   submit.css("float", "right");
   var orderQuery = [id];
 
-  //dropdown.attr("id", "options");
-
-  //option.attr("values", data.product_option_groups[i]);
-
+  //Loops through each of the options for the product and creates a dropdown
   for (var i = 0; i < data.product_option_groups.length; i++) {
     $(".modal-body").empty();
-
     var dropdown = $("<select />");
     dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
-
     form.append(dropdown);
     // var label = $("<label>");
     // label.attr("for", "custom-select");
@@ -120,10 +137,12 @@ function dropdowns(id, data) {
     title.text(data.product_option_groups[i].product_option_group_name);
     //console.log(data.product_option_groups[i].product_option_group_name);
     dropdown.prepend(title);
-
     dropdown.append(
       "UUU" + data.product_option_groups[i].product_option_group_name
     );
+
+    //Loops through the option choices within the different categories and inserts
+    //them into the appropriate dropdown
     function diut(i) {
       for (var v = 0; v < data.product_option_groups[i].options.length; v++) {
         var option = $("<option>").appendTo(dropdown);
@@ -131,7 +150,6 @@ function dropdowns(id, data) {
           "values",
           data.product_option_groups[i].options[v].option_uuid
         );
-
         option.append(
           data.product_option_groups[i].options[v].option_description
         );
@@ -139,33 +157,27 @@ function dropdowns(id, data) {
     }
     diut(i);
 
-    //var a = id;
-
-    // var b =
-    // var c = data.product_option_groups[1].options[1].option_uuid;
-    // var d = data.product_option_groups[2].options[1].option_uuid;
-    // var e = data.product_option_groups[3].options[1].option_uuid;
-    // var f = data.product_option_groups[4].options[1].option_uuid;
   }
   $(".modal-body").append(form);
   $(".modal-body").append(submit);
 
   console.log(orderQuery);
-  //
+
+  //Upon clicking the submit button on this dynamimcally changed modal,
+  //creates an array holding the details for the order
   $("#submit").click(function(event) {
     event.preventDefault();
     for (var j = 0; j < data.product_option_groups.length; j++) {
       orderQuery.push($("#" + j + " option:selected").attr("values"));
-      //if(j === data.product_option_groups.length){
-
-      //}
     }
     $(".orderList").empty();
     quoteGrab(orderQuery);
-    addOrder();
   });
 }
 
+//creates a post request to the 4over api with the details of the order
+//and passing the final quote information and product details into 
+//the function that puts it into a card on the main page
 function quoteGrab(orderQuery) {
   $.post("/api/4over/quote/", {
     //user_id: 82,
@@ -176,26 +188,32 @@ function quoteGrab(orderQuery) {
     option_uuid: orderQuery[4],
     turnaroundtime_uuid: orderQuery[5]
   }).then(function(response) {
+    order = {
+      product: response.name,
+      product_description: response.option_description
+    };
+    addOrder(order);
     console.log(response);
   });
 }
 
+//get request to the 4over api to retrieve the options for the chosen product
 function conditions(id) {
   $.get("/api/4over/options/" + id).then(function(data) {
     $("#busCardModal").modal("show");
-
     dropdowns(id, data);
   });
 }
 
+//waits for the page to load so the jquery doesnt run into issues
 $(document).ready(function() {
   $(".optionSelection").hide();
 });
 
+//switch case on the category page to display a modal appropriate to chosen
+//product type
 $(".choice").click(function() {
   var orderBuild = $(this).data("id");
-  //$(".page").empty();
-  //$(".optionSelection").show();
 
   console.log(orderBuild);
   switch (orderBuild) {
@@ -221,14 +239,9 @@ $(".choice").click(function() {
 
   case "businessCards":
     $("#busCardModal").modal("show");
-    //  {
-    //   $(".modal-body").empty();
-    //   $(this).show();
-    //}
+    //grabs values from the specific type of the chosen product
+    //and prompts the user with a confirmation
     $("#gloss").click(function() {
-      // if ($("option:selected").attr("values")) {
-      //   return;
-      // } else {
       var id = $("option:selected").attr("values");
       console.log(id);
       if (id !== undefined) {
@@ -242,19 +255,15 @@ $(".choice").click(function() {
         confirm.text("Is this correct?");
         chosen.append(confirm);
         $("#exampleModalLongTitle").append(chosen);
+        //sends you to a new modal to choose the second stage of details
+        //after confirmation
         $(".save").click(function() {
           $("#busCardModal").modal("hide");
           conditions(id);
           $("#exampleModalLongTitle").text("Please select the options");
         });
-        //id.show();
       }
-
-      // }
-
-      console.log("I clicked it");
     });
-    //switch()
     console.log("yes");
     break;
 
@@ -273,27 +282,6 @@ $(".choice").click(function() {
   default:
     console.log("wrong");
   }
-});
-
-$(".register").click(function(event) {
-  event.preventDefault();
-  var name = $("#registerEmail").val();
-  var password1 = $("#registerPassword").val();
-  var password2 = $("#confirmPassword").val();
-  validateRegister(password1, password2);
-  if (!check) {
-    validate();
-  } else if (check) {
-    newUser(name, password2);
-  }
-});
-
-$("#login").click(function(event) {
-  event.preventDefault();
-  console.log("hey");
-  var name = $("#inputEmail").val();
-  var password = $("#inputPassword").val();
-  userExists(name, password);
 });
 
 //I've commented out everything the starter file gave that I'm not using

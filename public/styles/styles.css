@@ -112,6 +112,10 @@ hr {
 #business-card-modal {
 }
 
+.form-group{
+  float:left;
+}
+
 #business-card-dropdown {
   width: 400px;
 }
