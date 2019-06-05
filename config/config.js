@@ -8,8 +8,8 @@ module.exports = {
   },
   test: {
     username: "root",
-    password: null,
-    database: "testdb",
+    password: "Cd309754321",
+    database: "graphics_db",
     host: "localhost",
     dialect: "mysql",
     logging: false
