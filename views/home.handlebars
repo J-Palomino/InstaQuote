@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light col-sm-12">
     <a class="navbar-brand" href="#">
         <img src="http://onlinedigitalgraphics.com/wp-content/uploads/2017/02/odg-video-logo.png" width="40%">
     </a>
@@ -31,7 +31,8 @@
 <div class="container" id="home-container">
 
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
             <div class="card mt-4">
                 <div class="card-body">
                     <h5 class="card-title"><strong>Welcome User Name: {{user}}!
@@ -39,35 +40,834 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-        
+        <div class="col-sm-2"></div>
+
     </div>
+
     <div class="row">
-        <div class="col-12 mt-4">
-            <a type="button" href="/user/order" class="btn btn-primary btn-lg btn-block">CREATE ORDER</a>
+        <div class="col-sm-4" id="home-user-info">
+            <img id="home-user-pic" src="#">
+            <p>Email:</p>
+            <p>Change Password</p>
         </div>
-       
-=======
-
+        <div class="col-sm-6"></div>
+        <div class="col-sm-2" id="quick-selector">
+            <p>Already know what you want to order?</p>
+            <ul id="select-list">
+                <li data-target="#printing-modal" data-toggle="modal" class="selector">Digital Printing</li>
+                <li data-target="#stickers-modal" data-toggle="modal" class="selector">Stickers</li>
+                <li data-target="#vinyl-modal" data-toggle="modal" class="selector">Vinyls</li>
+                <li data-target="#banners-modal" data-toggle="modal" class="selector">Banners</li>
+                <li data-target="#brochure-modal" data-toggle="modal" class="selector">Brochures</li>
+                <li data-target="#business-card-modal" data-toggle="modal" class="selector">Business Cards</li>
+                <li data-target="#poster-modal" data-toggle="modal" class="selector">Posters</li>
+                <li data-target="#prints-modal" data-toggle="modal" class="selector">Canvas Prints</li>
+                <li data-target="#flyer-modal" data-toggle="modal" class="selector">Flyers</li>
+            </ul>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-12 mt-4">
-            <a type="button" href="/user/order" class="btn btn-primary">CREATE ORDER</a>
+</div>
+
+<!-- ALL MODALS FOR ORDERS -->
+
+
+<!-- BUSINESS CARD MODAL -->
+
+
+
+<div class="modal fade bd-example-modal-lg" id="business-card-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/BusinessCard.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
         </div>
-
->>>>>>> 94b8c16ab981a6329faabb45ca2e8373d0ab9718
-
     </div>
-    <div class="row">
-        <div class="col-12 mt-4">
-<<<<<<< HEAD
-            <a type="button" href="user/history" class="btn btn-secondary btn-lg btn-block">ORDER HISTORY</a>
-        </div>
-        
-=======
-            <a type="button" href="user/history" class="btn btn-secondary">ORDER HISTORY</a>
-        </div>
+</div>
+</div>
+<!--====================================================================================-->
 
->>>>>>> 94b8c16ab981a6329faabb45ca2e8373d0ab9718
+<!-- BROCHURES MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="brochure-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/brochure.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
     </div>
+</div>
+
+</div>
+<!-- ============================================================================= -->
+
+
+<!-- FLYER MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="flyer-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/flyer.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- ============================================================================================= -->
+
+<!-- CANVAS PRINTS MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="prints-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="lds-hourglass"></div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/prints.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- ============================================================================================== -->
+
+<!-- BANNERS MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="banners-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/Banners.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            =======
+            <div class="row">
+                <div class="col-12 mt-4">
+                    <<<<<<< HEAD <a type="button" href="user/history" class="btn btn-secondary btn-lg btn-block">ORDER
+                        HISTORY</a>
+                </div>
+
+                =======
+                <a type="button" href="user/history" class="btn btn-secondary">ORDER HISTORY</a>
+                >>>>>>> 3494588507a50dbb339f535f177540a9cbbc36e7
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ========================================================================================= -->
+
+<!-- POSTERS MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="posters-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/poster.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                                <<<<<<< HEAD </div> </div> <br>
+                                    <div class="dropdown">
+                                        <h4>Suede</h4>
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="business-card-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Select an option
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Square Corners</a>
+                                            <a class="dropdown-item" href="#">Round Corners</a>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="dropdown">
+                                        <h4>Akuafoil</h4>
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                            id="business-card-dropdown" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                            Select an option
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                            <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                            <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                            <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                            <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                            <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                                        </div>
+                                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        =======
+        >>>>>>> 94b8c16ab981a6329faabb45ca2e8373d0ab9718
+        >>>>>>> 3494588507a50dbb339f535f177540a9cbbc36e7
+    </div>
+</div>
+
+</div>
+
+<!-- ================================================================================================ -->
+
+<!-- VINYL MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="vinyl-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/vinyl.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- =============================================================================================== -->
+
+<!-- STICKERS MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="stickers-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/sticker.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- ============================================================================================ -->
+
+<!-- DIGITAL PRINTING MODAL -->
+
+<div class="modal fade bd-example-modal-lg" id="printing-modal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                    <img class="card-img-top orderModalImages" src="../img/digitalprinting.jpg">
+                    <div class="orderModalContent">
+
+                        <h4>Standard</h4>
+
+
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Gloss - None</a>
+                                <a class="dropdown-item" href="#">Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Gloss - Both Sides</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Painted Edge</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">All</a>
+
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Suede</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners</a>
+                                <a class="dropdown-item" href="#">Round Corners</a>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="dropdown">
+                            <h4>Akuafoil</h4>
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select an option
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Square Corners, Gloss - Both Sides</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - None</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - One Side</a>
+                                <a class="dropdown-item" href="#">Round Corners, Gloss - Both Sides</a>
+
+                            </div>
+                        </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="col-12 footer">
+    <p class="text-center">Footer</p>
 </div>
