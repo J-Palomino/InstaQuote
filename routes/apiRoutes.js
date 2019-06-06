@@ -11,7 +11,7 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new example
+  // Create a new user
   app.post("/api/user", function(req, res) {
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(req.body.password, salt);
@@ -23,7 +23,7 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
-
+  //login user
   app.post("/api/usern/", function(req, res) {
     console.log("here");
     db.User.findOne({ where: { name: req.body.name } }).then(function(
