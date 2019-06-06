@@ -96,8 +96,8 @@ hr {
 .orderModalImages {
   position: relative;
   left: 450px;
-  height: 300px;
-  width: 300px;
+  /* height: 300px;
+  width: 300px; */
 }
 
 .orderModalContent {
@@ -110,7 +110,8 @@ hr {
   float: right;
 }
 
-#business-card-modal {
+.modal-content {
+  background-color: peru;
 }
 
 .form-group {
