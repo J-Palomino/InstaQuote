@@ -2,6 +2,8 @@
 //This is commenting out the variables used inside of the starter files that I am not using
 
 //user registration function upon click that runs the validation for the new user
+var orderSent = false;
+
 $(".register").click(function(event) {
   event.preventDefault();
   var name = $("#registerEmail").val();
@@ -88,24 +90,50 @@ function validateRegister(first, second) {
   }
 }
 
+
+function pageReload(){
+  location.reload();
+}
+
+
+
+
 //Creates a card on the main page after completing an order, containing the order
 //and product information
 function addOrder(order) {
-  var orderCard = $("<div").attr("class", "card");
+
+  console.log(order.product);
+  $(".page").empty();
+
+  function yes () {
+    $("#yes").text("okayt");
+  }
+  yes();
+
+  $("#order-header").append($("<h1>").text("YESYESYESYESYESYE"));
+  
+
+
+  var orderCard = $("<div>").attr("class", "card");
   $("<img>")
     .attr("src", "/img/BusinessCard.jpg")
     .attr("id", "orderImg")
-    .attr("class", "card-img-top")
+    //.attr("class", "card-img-top")
+    .css("width", "150px")
+    .css("height", "150px")
+    .css("float", "left")
     .appendTo(orderCard);
   $("<div>")
     .attr("class", "card-body")
     .attr("id", "orderBody")
     .appendTo("#orderImg");
   $("<h1>")
-    .text("Order Title")
+    .text(order.product)
     .wrap("#orderBody");
+
+    
   //orderCard.text("YES");
-  orderCard.appendTo($(".orderList"));
+  $("#order-header").append(orderCard);
 }
 
 //creates the set of dropdowns to choose the additional options
@@ -125,6 +153,7 @@ function dropdowns(id, data) {
   //Loops through each of the options for the product and creates a dropdown
   for (var i = 0; i < data.product_option_groups.length; i++) {
     $(".modal-body").empty();
+    $(".modal-footer").empty();
     var dropdown = $("<select />");
     dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
@@ -165,6 +194,7 @@ function dropdowns(id, data) {
   //creates an array holding the details for the order
   $("#submit").click(function(event) {
     event.preventDefault();
+    
     for (var j = 0; j < data.product_option_groups.length; j++) {
       orderQuery.push($("#" + j + " option:selected").attr("values"));
     }
@@ -187,11 +217,24 @@ function quoteGrab(orderQuery) {
     turnaroundtime_uuid: orderQuery[5]
   }).then(function(response) {
     order = {
-      product: response.name,
-      product_description: response.option_description
+      product: response.product_description,
+      basePrice: response.base_price,
+      customerPrice: response.customer_price,
+      customerTax: response.customer_tax,
+      customerTotal: response.customer_total
     };
+    console.log(JSON.stringify(response.product_description));
+    console.log("before page change");
+    //location.href = "/user/home";
+    console.log("Page redirected");
+    //$(window).load(function(order){
+
+    console.log("Page reloaded after redirect");
+    $("#busCardModal").modal("hide");
     addOrder(order);
-    console.log(response);
+    //});
+    
+    console.log(JSON.stringify(response));
   });
 }
 
