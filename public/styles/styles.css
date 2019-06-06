@@ -65,8 +65,9 @@ hr {
 
 .nav-link {
   position: relative;
-  top: 30px;
+  top: 10px;
   width: 125px;
+  padding-bottom: 30px;
   margin-right: 1px;
   left: 70px;
   z-index: 4;
@@ -105,15 +106,15 @@ hr {
   height: 100px;
 }
 
-.front{
-  float:right;
+.front {
+  float: right;
 }
 
 #business-card-modal {
 }
 
-.form-group{
-  float:left;
+.form-group {
+  float: left;
 }
 
 #business-card-dropdown {

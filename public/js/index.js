@@ -100,32 +100,63 @@ function addOrder(order) {
   console.log(order.product);
   $(".page").empty();
 
-  function yes() {
-    $("#yes").text("okayt");
-  }
-  yes();
-
   $("#order-header").append($("<h1>").text("YESYESYESYESYESYE"));
 
-  var orderCard = $("<div>").attr("class", "card");
-  $("<img>")
-    .attr("src", "/img/BusinessCard.jpg")
-    .attr("id", "orderImg")
-    //.attr("class", "card-img-top")
-    .css("width", "150px")
-    .css("height", "150px")
-    .css("float", "left")
-    .appendTo(orderCard);
-  $("<div>")
-    .attr("class", "card-body")
-    .attr("id", "orderBody")
-    .appendTo("#orderImg");
-  $("<h1>")
-    .text(order.product)
-    .wrap("#orderBody");
+  var block = $("<div />");
+  var htmlString = "<div style='padding:30px' class='card'>";
+  htmlString += "<div class='card-body'>";
+  htmlString +=
+    "<div class='card-title' style='text-align:center'> ORDER EXAMPLE</div>";
+  htmlString += "<div class='row'>";
+  htmlString += "<div class='col-10'>";
 
-  //orderCard.text("YES");
-  $("#order-header").append(orderCard);
+  htmlString += "<h5 class='card-text'>" + order.product + "</h5>";
+  htmlString +=
+    "<ul><li>Customer Total" + order.customerTotal + "</li></ul></div>";
+  htmlString +=
+    "<div class='col-2'><img style='width:100px;height:100px' src='/img/BusinessCard.jpg'></div>";
+  htmlString += "</div></div></div>";
+  block.html(htmlString);
+  block.appendTo("#order-container");
+
+  // var orderCard = $("<div>").attr("class", "card");
+  // $("<div>")
+  //   .attr("class", "row")
+  //   .appendTo(orderCard);
+  // $("<div>")
+  //   .attr("class", "col-auto")
+  //   .attr("id", "right")
+  //   .appendTo(".row");
+  // $("<div>")
+  //   .attr("class", "col-auto")
+  //   .attr("id", "left")
+  //   .appendTo(".row");
+  // $("<img>")
+  //   .attr("src", "/img/BusinessCard.jpg")
+  //   .attr("id", "orderImg")
+  //   .attr("class", "card-img-top")
+  //   .css("width", "150px")
+  //   .css("height", "150px")
+  //   .css("margin", "auto")
+  //   .appendTo("#right");
+  // $("<div>")
+  //   .css("margin-top", "50px")
+  //   .attr("class", "card-body")
+  //   .attr("id", "orderBody")
+  //   .appendTo("#left");
+  // $("<h5>")
+  //   .attr("class", "card-title")
+  //   .text(order.product)
+  //   .appendTo("#left");
+  // $("<ul>")
+  //   .attr("class", "card-text")
+  //   .appendTo(".card-title");
+  // $("<li>")
+  //   .text("EYEYEYEY")
+  //   .appendTo(".card-text");
+  // //orderCard.text("YES");
+  // $("#order-container").append(orderCard);
+  // $(orderCard).appendTo("#left");
 }
 
 //creates the set of dropdowns to choose the additional options
