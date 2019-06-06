@@ -90,29 +90,22 @@ function validateRegister(first, second) {
   }
 }
 
-
-function pageReload(){
+function pageReload() {
   location.reload();
 }
-
-
-
 
 //Creates a card on the main page after completing an order, containing the order
 //and product information
 function addOrder(order) {
-
   console.log(order.product);
   $(".page").empty();
 
-  function yes () {
+  function yes() {
     $("#yes").text("okayt");
   }
   yes();
 
   $("#order-header").append($("<h1>").text("YESYESYESYESYESYE"));
-  
-
 
   var orderCard = $("<div>").attr("class", "card");
   $("<img>")
@@ -131,7 +124,6 @@ function addOrder(order) {
     .text(order.product)
     .wrap("#orderBody");
 
-    
   //orderCard.text("YES");
   $("#order-header").append(orderCard);
 }
@@ -194,7 +186,7 @@ function dropdowns(id, data) {
   //creates an array holding the details for the order
   $("#submit").click(function(event) {
     event.preventDefault();
-    
+
     for (var j = 0; j < data.product_option_groups.length; j++) {
       orderQuery.push($("#" + j + " option:selected").attr("values"));
     }
@@ -217,13 +209,16 @@ function quoteGrab(orderQuery) {
     turnaroundtime_uuid: orderQuery[5]
   }).then(function(response) {
     order = {
-      product: response.product_description,
+      product: response.product_decription,
       basePrice: response.base_price,
       customerPrice: response.customer_price,
       customerTax: response.customer_tax,
       customerTotal: response.customer_total
     };
-    console.log(JSON.stringify(response.product_description));
+    console.log(response.product_decription);
+    console.log(response.base_price);
+    console.log(response.customer_price);
+    console.log(response.total_price);
     console.log("before page change");
     //location.href = "/user/home";
     console.log("Page redirected");
@@ -233,8 +228,8 @@ function quoteGrab(orderQuery) {
     $("#busCardModal").modal("hide");
     addOrder(order);
     //});
-    
-    console.log(JSON.stringify(response));
+
+    console.log(response);
   });
 }
 
