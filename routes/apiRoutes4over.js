@@ -131,8 +131,6 @@ module.exports = function(app) {
       .then(response => {
         var rd = response.data;
         console.log("ODG Cost: $" + parseFloat(rd.total_price).toFixed(2));
-        var quote = (parseFloat(rd.total_price) * markup * taxRate).toFixed(2);
-        console.log("Customer Quote: $" + quote);
         var customerMarkup = Math.round(
           parseFloat(rd.total_price) * markup
         ).toFixed(2);
@@ -140,10 +138,13 @@ module.exports = function(app) {
           parseFloat(customerMarkup) * taxRate
         ).toFixed(2);
         rd.customer_price = customerMarkup;
+        console.log("Customer Price: $" + rd.customer_price);
         rd.customer_tax = customerTax;
+        console.log("Customer Tax: $" + rd.customer_tax);
         rd.customer_total = Math.round(
           parseFloat(customerMarkup) + parseFloat(customerTax)
         ).toFixed(2);
+        console.log("Customer Total: $" + rd.customer_total);
         res.json(response.data);
       })
       .catch(error => {
