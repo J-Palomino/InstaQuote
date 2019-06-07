@@ -180,10 +180,13 @@ function dropdowns(id, data) {
     var dropdown = $("<select />");
     dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
+    dropdown.css("class", "row");
+    
     form.append(dropdown);
-    // var label = $("<label>");
-    // label.attr("for", "custom-select");
-    // label.text(data.product_option_groups[i].product_option_group_name);
+    var label = $("<label>");
+    label.attr("for", "custom-select");
+    label.text(data.product_option_groups[i].product_option_group_name);
+    dropdown.wrap(label);
     var title = $("<h2>");
     title.text(data.product_option_groups[i].product_option_group_name);
     //console.log(data.product_option_groups[i].product_option_group_name);
@@ -209,7 +212,7 @@ function dropdowns(id, data) {
     diut(i);
   }
   $(".modal-body").append(form);
-  $(".modal-body").append(submit);
+  $(".modal-footer").append(submit);
 
   console.log(orderQuery);
 
@@ -315,14 +318,16 @@ $(".choice").click(function() {
       if (id !== undefined) {
         //conditions(id);
         console.log($(this).val());
-        $(".orderModalContent").empty();
+        $(".modal-body").empty();
         $("#busImg").remove();
         var chosen = $("<h1>");
+        chosen.css("text-align", "center");
         chosen.html("You've chosen: <br>" + $(this).val());
-        var confirm = $("<br><h2>");
+        var confirm = $("<h2>");
+        confirm.css("text-align", "center");
         confirm.text("Is this correct?");
         chosen.append(confirm);
-        $("#exampleModalLongTitle").append(chosen);
+        $(".modal-body").append(chosen);
         //sends you to a new modal to choose the second stage of details
         //after confirmation
         $(".save").click(function() {
