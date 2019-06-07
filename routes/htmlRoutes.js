@@ -19,7 +19,6 @@ module.exports = function(app) {
       });
     });
   });
-
   // Load example page and pass in an example by id
   app.get("/user/order", function(req, res) {
     db.User.findOne({ where: { id: req.params.name } }).then(function(

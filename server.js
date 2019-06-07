@@ -5,19 +5,43 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
 var PORT = process.env.PORT || 3000;
+
+// var env = require("dotenv").load();
+var exphbs = require("express-handlebars");
+// var authRoute = require("./routes/auth.js")(app);
+
+//For BodyParser
+app.use(bodyParser.json());
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.get("/", function(req, res) {
+  res.send("Welcome to Passport with Sequelize");
+});
+// For Passport
+
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+
+app.use(passport.initialize());
+
+app.use(passport.session());
+// persistent login sessions
 // app.use((req,res,next) => {
 //   console.log('req.url',req.url);
 //   console.log('req.method',req.method);
 //   next();
 // })
 
+app.set("views", "./views");
 // Handlebars
 app.engine(
   "handlebars",
@@ -31,6 +55,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes4over")(app);
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/auth.js")(app);
 
 var syncOptions = { force: false };
 

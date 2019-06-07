@@ -7,9 +7,9 @@ module.exports = {
     dialect: "mysql"
   },
   test: {
-    username: "root",
-    password: null,
-    database: "testdb",
+    username: "admini",
+    password: "password1",
+    database: "odg_db",
     host: "localhost",
     dialect: "mysql",
     logging: false

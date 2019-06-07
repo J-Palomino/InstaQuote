@@ -13,14 +13,13 @@ PRIMARY KEY(id)
 DROP DATABASE IF EXISTS customers;
 CREATE DATABASE customers;
 
-CREATE TABLE customer_logins(
+CREATE TABLE User(
     id INTEGER AUTO INCREMENT NOT NULL,
     first_name VARCHAR(45) NOT NULL,
     last_name VARCHAR(45) NOT NULL,
     company VARCHAR(45),
     email VARCHAR(100) NOT NULL,
-    username VARCHAR(100) NOT NULL,
-    passwd PASSWORD(STRING) NOT NULL,
+    password PASSWORD(STRING) NOT NULL,
 
     PRIMARY KEY(id)
 )

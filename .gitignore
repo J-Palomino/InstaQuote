@@ -2,3 +2,4 @@
 node_modules
 npm-debug.log
 .env
+NODE_ENV='development'
