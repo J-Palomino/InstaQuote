@@ -114,15 +114,18 @@ module.exports = function(app) {
     var rb = req.body;
     var searchString = "printproducts/productquote";
     var productString = "&product_uuid=" + rb.product_uuid;
+    productString += "&orientation_uuid" + rb.orientation_uuid;
     productString += "&colorspec_uuid=" + rb.colorspec_uuid;
     productString += "&runsize_uuid=" + rb.runsize_uuid;
+    productString += "&options[]=" + rb.option_uuid;
     productString += "&turnaroundtime_uuid=" + rb.turnaroundtime_uuid;
-    if (rb.option_uuid.length > 0) {
-      for (i = 0; i < rb.option_uuid.length; i++) {
-        productString += "&options[]=";
-        productString += rb.option_uuid[i];
-      }
-    }
+
+    // if (rb.option_uuid.length > 0) {
+    //   for (i = 0; i < rb.option_uuid.length; i++) {
+    //     productString += "&options[]=";
+    //     productString += rb.option_uuid[i];
+    //   }
+    // }
     var queryString =
       baseURL + searchString + apiKey + apiSignature + productString;
     console.log(queryString);

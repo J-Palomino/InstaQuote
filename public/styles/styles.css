@@ -74,8 +74,9 @@ hr {
 
 .nav-link {
   position: relative;
-  top: 30px;
+  top: 10px;
   width: 125px;
+  padding-bottom: 30px;
   margin-right: 1px;
   left: 70px;
   z-index: 4;
@@ -172,14 +173,26 @@ hr {
 .orderModalImages {
   position: relative;
   left: 450px;
-  height: 300px;
-  width: 300px;
+  /* height: 300px;
+  width: 300px; */
 }
 
 .orderModalContent {
   position: relative;
   top: -300px;
   height: 100px;
+}
+
+.front {
+  float: right;
+}
+
+.modal-content {
+  background-color: peru;
+}
+
+.form-group {
+  float: left;
 }
 
 #business-card-dropdown {

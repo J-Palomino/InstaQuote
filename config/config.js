@@ -5,11 +5,18 @@ module.exports = {
     database: process.env.DB_NAME,
     host: "localhost",
     dialect: "mysql"
+
+    // username: "root",
+    // password: "123",
+    // database: "project_db",
+    // host: "localhost",
+    // dialect: "mysql",
+    // logging: false
   },
   test: {
     username: "root",
-    password: "Cd309754321",
-    database: "graphics_db",
+    password: "123",
+    database: "project_db",
     host: "localhost",
     dialect: "mysql",
     logging: false
