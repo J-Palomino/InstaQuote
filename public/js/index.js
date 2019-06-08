@@ -112,8 +112,11 @@ function addOrder(order) {
   htmlString += "<div class='col-10'>";
 
   htmlString += "<h5 class='card-text'>" + order.product + "</h5>";
-  htmlString +=
-    "<ul><li>Customer Total: " + order.customerTotal + "</li></ul></div>";
+  htmlString += "<ul><li>Base Price: $" + order.basePrice + "</li>";
+  htmlString += "<li>Customer Price: $" + order.customerPrice + "</li>";
+  htmlString += "<li>Customer Tax: $" + order.customerTax + "</li>";
+  htmlString += "<li>Customer Total: $" + order.customerTotal + "</li>";
+  htmlString += "</ul></div>";
   htmlString +=
     "<div class='col-2'><img style='width:100px;height:100px' src='/img/BusinessCard.jpg'></div>";
   htmlString += "</div></div></div>";
