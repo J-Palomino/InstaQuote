@@ -119,13 +119,12 @@ module.exports = function(app) {
     productString += "&runsize_uuid=" + rb.runsize_uuid;
     //productString += "&options[]=" + rb.option_uuid;
     productString += "&turnaroundtime_uuid=" + rb.turnaroundtime_uuid;
-
-     if (rb.option_uuid.length > 0) {
-       for (i = 0; i < rb.option_uuid.length; i++) {
-         productString += "&options[]=";
-         productString += rb.option_uuid[i];
-       }
-     }
+        productString += "&options[]=";
+    if (rb.option_uuid.length > 0) {
+      for (i = 0; i < rb.option_uuid.length; i++) {
+        productString += rb.option_uuid[i];
+      }
+    }
     var queryString =
       baseURL + searchString + apiKey + apiSignature + productString;
     console.log(queryString);

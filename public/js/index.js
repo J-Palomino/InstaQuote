@@ -172,6 +172,7 @@ function dropdowns(id, data) {
   submit.text("Submit");
   submit.css("float", "right");
   var orderQuery = [id];
+  var orderOption = [];
 
   //Loops through each of the options for the product and creates a dropdown
   for (var i = 0; i < data.product_option_groups.length; i++) {
@@ -181,28 +182,34 @@ function dropdowns(id, data) {
     dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
     dropdown.css("class", "row");
+    dropdown.css("class", "col-12");
     
     form.append(dropdown);
     var label = $("<label>");
     label.attr("for", "custom-select");
     label.text(data.product_option_groups[i].product_option_group_name);
     dropdown.wrap(label);
-    var title = $("<h2>");
-    title.text(data.product_option_groups[i].product_option_group_name);
+    // var title = $("<h2>");
+    // title.text(data.product_option_groups[i].product_option_group_name);
     //console.log(data.product_option_groups[i].product_option_group_name);
-    dropdown.prepend(title);
-    dropdown.append(
-      "UUU" + data.product_option_groups[i].product_option_group_name
-    );
+    // dropdown.prepend(title);
+    // dropdown.append(
+    //   "UUU" + data.product_option_groups[i].product_option_group_name
+    // );
 
     //Loops through the option choices within the different categories and inserts
     //them into the appropriate dropdown
     function diut(i) {
       for (var v = 0; v < data.product_option_groups[i].options.length; v++) {
+        console.log(data.product_option_groups[i]);
         var option = $("<option>").appendTo(dropdown);
         option.attr(
           "values",
           data.product_option_groups[i].options[v].option_uuid
+        );
+        option.attr(
+          "name",
+          data.product_option_groups[i].product_option_group_name
         );
         option.append(
           data.product_option_groups[i].options[v].option_description
@@ -222,25 +229,36 @@ function dropdowns(id, data) {
     event.preventDefault();
 
     for (var j = 0; j < data.product_option_groups.length; j++) {
-      orderQuery.push($("#" + j + " option:selected").attr("values"));
-    }
-    $(".orderList").empty();
-    quoteGrab(orderQuery);
-  });
+      console.log($("#" + j + "option:selected").attr("name"));
+      if($("#" + j + " option:selected").attr("name") === "Colorspec" || "Runsize" || "Turn Around Time"){
+        orderQuery.push($("#" + j + " option:selected").attr("values"));
+      }else{
+        orderOption.push($("#" + j + " option:selected").attr("values"));
+      }
+      $(".orderList").empty();
+      quoteGrab(orderQuery);
+    }});
 }
 
 //creates a post request to the 4over api with the details of the order
 //and passing the final quote information and product details into
 //the function that puts it into a card on the main page
 function quoteGrab(orderQuery) {
+
   $.post("/api/4over/quote/", {
     //user_id: 82,
+
     product_uuid: orderQuery[0],
     orientation_uuid: orderQuery[1],
     colorspec_uuid: orderQuery[2],
     runsize_uuid: orderQuery[3],
-    option_uuid: orderQuery[4],
-    turnaroundtime_uuid: orderQuery[5]
+
+    option_uuid: orderOption,
+
+    turnaroundtime_uuid: orderQuery[4],
+
+    
+
   }).then(function(response) {
     order = {
       product: response.product_decription,
