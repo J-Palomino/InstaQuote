@@ -1,5 +1,29 @@
--- DROP DATABASE IF EXISTS exampledb;
--- CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS odg_db;
+CREATE DATABASE odg_db;
 
--- DROP DATABASE IF EXISTS testdb;
--- CREATE DATABASE testdb;
+CREATE TABLE products(
+id INTEGER AUTO INCREMENT NOT NULL,
+name VARCHAR(100) NOT NULL,
+descript TEXT,
+quantity INTEGER NOT NULL,
+
+PRIMARY KEY(id)
+)
+
+DROP DATABASE IF EXISTS customers;
+CREATE DATABASE customers;
+
+CREATE TABLE customer_logins(
+    id INTEGER AUTO INCREMENT NOT NULL,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
+    company VARCHAR(45),
+    email VARCHAR(100) NOT NULL,
+    username VARCHAR(100) NOT NULL,
+    passwd PASSWORD(STRING) NOT NULL,
+
+    PRIMARY KEY(id)
+)
+
+
+

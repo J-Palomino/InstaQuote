@@ -1,221 +1,631 @@
-<div class="container">
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="#">
-      <img src="http://onlinedigitalgraphics.com/wp-content/uploads/2017/02/odg-video-logo.png" width="40%">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="/user/home">Home </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/order">Create Order <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Order History</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user}}</a>
-        </li>
-      </ul>
+<nav class="navbar navbar-expand-lg navbar-light col-sm-12">
+  <a class="navbar-brand" href="#">
+    <img src="http://onlinedigitalgraphics.com/wp-content/uploads/2017/02/odg-video-logo.png" width="40%">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="/user/home">Home </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/user/order">Create Order <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Order History</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">{{user}}</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container" id="order-container">
+  <!--<div class="row page">
+        <div class="col-12">
+            <div class="mt-4">
+                <div class="card-body">
+                    <h3 class="card-title" style="text-align: center"><strong>Click on one of the items below and choose
+                            your preferences to place an order!
+                        </strong></h3>
+
+                </div>
+            </div>
+        </div>-->
+  <!-- END OF NAVBAR-->
+  <!--============================================================================-->
+  {{!-- 
+  <div class="order-carousel col-sm-12">
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="6"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="7"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="8"></li>
+
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img data-target="#printing-modal" data-toggle="modal" class="carousel-images"
+            src="../img/digitalprinting.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Digital Printing</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#stickers-modal" data-toggle="modal" class="carousel-images" src="../img/sticker.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Stickers</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#vinyl-modal" data-toggle="modal" class="carousel-images" src="../img/vinyl.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Vinyls</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#banners-modal" data-toggle="modal" class="carousel-images" src="../img/Banners.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Banners</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#brochure-modal" data-toggle="modal" class="carousel-images" src="../img/brochure.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Brochures</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#business-card-modal" data-toggle="modal" class="carousel-images"
+            src="../img/BusinessCard.jpg" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Business Cards</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#posters-modal" data-toggle="modal" class="carousel-images" src="../img/poster.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Posters</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#prints-modal" data-toggle="modal" class="carousel-images" src="../img/prints.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Canvas Prints</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img data-target="#flyer-modal" data-toggle="modal" class="carousel-images" src="../img/flyer.jpg"
+            class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h3 class="carousel-text">Flyers</h3>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-  </nav>
+  </div> --}}
+
+  <!--START OF ORDER OPTIONS-->
+  <!--============================================================================-->
+
+
+
+  <!-- FIRST ROW-->
 
   <div class="row page">
-    <div class="col-12">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h2 class="card-title" style="text-align: center"><strong>What Product Are Looking to Create? </strong></h2>
+    <div class="col-4 choice" data-id="digPrint">
 
-        </div>
-      </div>
+      <h3 class="card-title text-center">Digital Printing</h3>
+
+      <i data-target="#printing-modal" data-toggle="modal" class="fa fa-print fa-5x order-icons"></i>
+
     </div>
+
+
+
+    <div class="col-4 choice" data-id="stickers">
+      <h3 class="card-title text-center">Stickers</h3>
+
+      <i data-target="#stickers-modal" data-toggle="modal" class="fa fa-sticky-note fa-5x order-icons"></i>
+
+
+    </div>
+
+    <div class="col-4 choice" data-id="cutVinyl">
+      <h3 class="card-title text-center">Cut Vinyl</h3>
+
+      <i data-target="#vinyl-modal" data-toggle="modal" class="fa fa-edit fa-5x order-icons"></i>
+
+
+    </div>
+
+
   </div>
+  <!-- SECOND ROW -->
 
   <div class="row page">
-    <div class="col-3 offset-2 choice" data-id="digPrint">
-      <div class='card mt-4'>
-        <img class="card-img-top" src="../img/digitalprinting.jpg">
-        <div class="card-body">
-          <h2 class="card-title">Digital Printing</h2>
-        </div>
-      </div>
+
+
+    <div class="col-4 choice" data-id="banners">
+      <h3 class="card-title text-center">Banners</h3>
+
+      <i data-target="#banners-modal" data-toggle="modal" class="fa fa-flag fa-5x order-icons"></i>
+
+
     </div>
 
-    <div class="col-3 offset-2 choice" data-id="stickers">
-      <div class='card mt-4'>
-        <img class="card-img-top" src="../img/digitalprinting.jpg">
-        <div class="card-body">
-          <h2 class="card-title">Stickers</h2>
-        </div>
+    <div class="col-4 choice" data-id="brochures">
+      <h3 class="card-title text-center">Brochures</h3>
+      <div>
+        <i class="fa fa-book fa-5x order-icons" data-target="#brochure-modal" data-toggle="modal"></i>
       </div>
+
+
+
     </div>
+    <div class="col-4 choice" data-id="businessCards">
+      <h3 class="card-title text-center">Business Cards</h3>
+
+      <i class="fa fa-address-card fa-5x order-icons" data-id="businessCards" data-target="#business-card-modal"
+        data-toggle="modal"></i>
+
+
+    </div>
+
   </div>
+
+
+
+
+
+
+
+
+  <!-- THIRD ROW -->
 
   <div class="row page">
-    <div class="col-3  offset-2 choice" data-id="cutVinyl">
+    <div class="col-sm-4 choice" data-id="posters">
+      <h3 class="card-title text-center">Posters</h3>
+
+      <i data-target="#posters-modal" data-toggle="modal" class="fa fa-square fa-5x order-icons"></i>
+
+
+    </div>
+
+    <div class="col-sm-4 choice" data-id="canPrints">
+      <h3 class="card-title text-center">Canvas Prints</h3>
+
+      <i class="fa fa-copy fa-5x order-icons" data-target="#prints-modal" data-toggle="modal"></i>
+
+
+    </div>
+
+    <div class="col-sm-4 choice" data-id="flyers">
+      <h3 class="card-title text-center">Flyers</h3>
+
+      <i class="fa fa-list-alt fa-5x order-icons" data-target="#flyer-modal" data-toggle="modal"></i>
+
+
+    </div>
+  </div>
+  <!-- FIRST ROW-->
+
+  {{!-- <div class="row page">
+    <div class="col-4 choice" data-id="digPrint">
       <div class='card mt-4'>
+        <h3 class="card-title text-center">Digital Printing</h3>
         <img class="card-img-top" src="../img/digitalprinting.jpg">
         <div class="card-body">
-          <h2 class="card-title">Cut Vinyl</h2>
         </div>
       </div>
     </div>
 
-    <div class="col-3 offset-2 choice" data-id="banners">
+    <div class="col-4 choice" data-id="stickers">
       <div class='card mt-4'>
+        <h3 class="card-title text-center">Stickers</h3>
+
         <img class="card-img-top" src="../img/digitalprinting.jpg">
         <div class="card-body">
-          <h2 class="card-title">Banners</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 choice" data-id="cutVinyl">
+      <div class='card mt-4'>
+        <h3 class="card-title text-center">Cut Vinyl</h3>
+
+        <img class="card-img-top" src="../img/digitalprinting.jpg">
+        <div class="card-body">
         </div>
       </div>
     </div>
   </div>
+
+
+
+
+
+
+  <!-- SECOND ROW -->
 
   <div class="row page">
-    <div class="col-3 offset-2 choice" data-id="brochures">
+
+
+    <div class="col-4 choice" data-id="banners">
       <div class='card mt-4'>
-        <img class="card-img-top" src="../img/digitalprinting.jpg">
+        <h3 class="card-title text-center">Banners</h3>
+
+        <img class="card-img-top" src="../img/Banners.jpg">
         <div class="card-body">
-          <h2 class="card-title">Brochures</h2>
         </div>
       </div>
     </div>
 
-    <div class="col-3 offset-2 choice" data-id="businessCards">
+    <div class="col-4 choice" data-id="brochures">
       <div class='card mt-4'>
+        <h3 class="card-title text-center">Brochures</h3>
+
         <img class="card-img-top" src="../img/digitalprinting.jpg">
         <div class="card-body">
-          <h2 class="card-title">Business Cards</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 choice" data-id="businessCards" data-target="#business-card-modal" data-toggle="modal">
+      <div class='card mt-4'>
+        <h3 class="card-title text-center">Business Cards</h3>
+
+        <img class="card-img-top orderImages" src="../img/BusinessCard.jpg">
+        <div class="card-body">
         </div>
       </div>
     </div>
   </div>
+
+
+
+
+  <!-- THIRD ROW -->
 
   <div class="row page">
-    <div class="col-3 offset-2 choice" data-id="posters">
+    <div class="col-4 choice" data-id="posters">
       <div class='card mt-4'>
+        <h3 class="card-title text-center">Posters</h3>
+
         <img class="card-img-top" src="../img/digitalprinting.jpg">
         <div class="card-body">
-          <h2 class="card-title">Posters</h2>
         </div>
       </div>
     </div>
 
-    <div class="col-3 offset-2 choice" data-id="canPrints">
+    <div class="col-4 choice" data-id="canPrints">
       <div class='card mt-4'>
+        <h3 class="card-title text-center">Canvas Prints</h3>
+
         <img class="card-img-top" src="../img/digitalprinting.jpg">
         <div class="card-body">
-          <h2 class="card-title">Canvas Prints</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4 choice" data-id="flyers">
+      <div class='card mt-4'>
+        <h3 class="card-title text-center">Flyers</h3>
+
+        <img class="card-img-top" src="../img/digitalprinting.jpg">
+        <div class="card-body">
+        </div>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+  <!-- END OF PRODUCT OPTIONS -->
+  <!-- ================================================================================== -->
+
+
+
+
+  <!-- ALL MODALS FOR ORDERS -->
+
+
+  <!-- BUSINESS CARD MODAL -->
+
+
+
+  <div class="modal fade bd-example-modal-lg" id="busCardModal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="modal-body">
+            <div class="col-6">
+              <img class="card-img-top orderModalImages" id="busImg" src="../img/BusinessCard.jpg">
+            </div>
+
+
+            <div class="col-6">
+              <form>
+
+                <div class="orderModalContent">
+                  <div class="dropdown">
+
+                    <div class="form-group">
+                      <label for="standard"><strong>Standard
+                        </strong></label>
+                      <select class="custom-select" id="standard">
+                        <option selected>Choose One . . .</option>
+                        <option values="f76b1ef6-184b-4e0d-96fa-426fd7b3dd1a">Gloss - None</option>
+                        <option values="86172f87-0296-49dc-9b5b-87002a6c4ab7">Gloss - One Side</option>
+                        <option values="395fdc45-f6ea-4f7f-a809-2d054ac5bf73">Gloss - Both Sides</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="dropdown">
+
+                    <div class="form-group">
+                      <label for="painted"><strong>Painted Edge
+                        </strong></label>
+                      <select class="custom-select" id="painted">
+                        <option selected>Choose One . . .</option>
+                        <option values="f42561c8-8f55-460c-be7a-551931c98bb5">All</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="dropdown">
+
+                    <div class="form-group">
+                      <label for="suede"><strong>Suede
+                        </strong></label>
+                      <select class="custom-select" id="suede">
+                        <option selected>Choose One . . .</option>
+                        <option values="e10fbe35-2ed2-4f12-83cf-243d3d8b8135">Square Corners</option>
+                        <option values="ec0ee8c4-b542-4e48-bfc7-895203d9968f">Round Corners</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="dropdown">
+
+                    <div class="form-group">
+                      <label for="akua"><strong>Akuafoil
+                        </strong></label>
+                      <select class="custom-select" id="akua">
+                        <option selected>Choose One . . .</option>
+                        <option values="3e645657-f78a-49d1-a65b-34fbd7f0d087">Square Corners, Gloss - None</option>
+                        <option values="d1dc22c4-dd2e-4ea7-b45f-772cf1995bb0">Square Corners, Gloss - One Side</option>
+                        <option values="584065bf-5287-4bf9-b951-5459fddddc60">Square Corners, Gloss - Both Sides
+                        </option>
+                        <option values="eb531f3f-799d-4d51-b4e3-8697c1f8f375">Round Corners, Gloss - None</option>
+                        <option values="ef7d061d-d79b-4eb6-9937-2c55832e4cdc">Round Corners, Gloss - One Side</option>
+                        <option values="6cc1867d-f200-40e0-a3db-7a6e0f3cbc9d">Round Corners, Gloss - Both Sides</option>
+                      </select>
+                    </div>
+                  </div>
+                  <br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="pageReload()">Close</button>
+        <button data-target="levelTwoModal" data-toggle="modal" type="button" class="btn btn-primary save">Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- NEW MODAL FOR SECOND LAYER -->
+  <div class="modal" id="levelTwoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-target="#business-card-modal" data-toggle="modal">Save
+            changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="row page">
-    <div class="col-3 offset-2 choice" data-id="flyers">
-      <div class='card mt-4'>
-        <img class="card-img-top" src="../img/digitalprinting.jpg">
-        <div class="card-body">
-          <h2 class="card-title">Flyers</h2>
-        </div>
+
+  <!-- copied-->
+
+
+
+  {{!-- 
+<div class="modal fade bd-example-modal-lg" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="111exampleModalLongTitle">Create your own styled business card</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div>
-  </div>
+      <div class="modal-body">
+        <form>
+
+          <img class="card-img-top orderModalImages" id="busImg" src="../img/BusinessCard.jpg">
+          <div class="orderModalContent">
+            <h4>Standard</h4>
 
 
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="business-card-dropdown"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select an option
+              </button>
+              <div class="form-group">
+                <label for="gloss"><strong>Standard
+                  </strong></label>
+                <select class="custom-select" id="gloss">
+                  <option selected>Choose One . . .</option>
+                  <option values="f76b1ef6-184b-4e0d-96fa-426fd7b3dd1a">Gloss - None</option>
+                  <option values="86172f87-0296-49dc-9b5b-87002a6c4ab7">Gloss - One Side</option>
+                  <option values="395fdc45-f6ea-4f7f-a809-2d054ac5bf73">Gloss - Both Sides</option>
+                </select>
+              </div>
+            </div>
+            <br>
 
 
-  <div class="row optionSelection">
-    <div class="input-group mb-4 mt-4">
-      <select class="custom-select" id="servicesGeneral">
-        <option selected>Choose...</option>
-        <option value="1">Digital Printing</option>
-        <option value="2">Stickers</option>
-        <option value="3">Cut Vinyl</option>
-        <option value="3">Banners</option>
-        <option value="3">Brochures</option>
-        <option value="3">Business Cards</option>
-        <option value="3">Posters</option>
-        <option value="3">Canvas Prints</option>
-        <option value="3">Flyers</option>
-      </select>
-      <div class="input-group-append">
-        <label class="input-group-text" for="inputGroupSelect02">Product Type</label>
+        </form>
       </div>
-    </div>
-  </div>
-
-  <div class="input-group mb-4 optionSelection">
-    <select class="custom-select start" id="quantity">
-      <option selected>How Many Would You Like...</option>
-      <option value="1">500</option>
-      <option value="2">1000</option>
-      <option value="3">2000</option>
-      <option value="4">2500</option>
-      <option value="5">5000</option>
-      <option value="6">10000</option>
-      <option value="7">20000</option>
-    </select>
-    <div class="input-group-append">
-      <label class="input-group-text" for="inputGroupSelect02">Options</label>
-    </div>
-  </div>
-
-  <div class="input-group mb-4 optionSelection">
-    <select class="custom-select start businessCard" id="businessSize">
-      <option selected>What Size Would You Like...</option>
-      <option value="1">14pt C2S</option>
-      <option value="2">16pt C2S</option>
-      <option value="3">100# Linen</option>
-    </select>
-    <div class="input-group-append">
-      <label class="input-group-text" for="inputGroupSelect02">Options</label>
-    </div>
-  </div>
-
-  <div class="input-group mb-4 optionSelection">
-    <select class="custom-select start flyer" id="flyerSize">
-      <option selected>What Size Would You Like...</option>
-      <option value="1">5.5" x 8.5"</option>
-      <option value="2">4.25" x 6"</option>
-      <option value="3">5" x 7"</option>
-      <option value="4">6.5" x 9"</option>
-      <option value="5">6" x 11"</option>
-    </select>
-    <div class="input-group-append">
-      <label class="input-group-text" for="inputGroupSelect02">Options</label>
-    </div>
-  </div>
-
-   <div class="input-group mb-4 optionSelection">
-    <select class="custom-select start" id="shipping">
-      <option selected>Shipping Options...</option>
-      <option value="1">Next Day</option>
-      <option value="2">2-4 Business Days</option>
-      <option value="3">5" x 7"</option>
-      <option value="4">6.5" x 9"</option>
-      <option value="5">6" x 11"</option>
-    </select>
-    <div class="input-group-append">
-      <label class="input-group-text" for="inputGroupSelect02">Options</label>
-    </div>
-  </div>
-
-
-  <div class="input-group optionSelection">
-    <input type="text" placeholder="Current Estimate" class=" start form-control"
-      aria-label="Dollar amount (with dot and two decimal places)">
-    <div class="input-group-append">
-      <span class="input-group-text">$</span>
-      <span class="input-group-text">0.00</span>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary 3save">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row optionSelection">
+  <div class="input-group mb-4 mt-4">
+    <select class="custom-select" id="servicesGeneral">
+      <option selected>Choose...</option>
+      <option value="1">Digital Printing</option>
+      <option value="2">Stickers</option>
+      <option value="3">Cut Vinyl</option>
+      <option value="3">Banners</option>
+      <option value="3">Brochures</option>
+      <option value="3">Business Cards</option>
+      <option value="3">Posters</option>
+      <option value="3">Canvas Prints</option>
+      <option value="3">Flyers</option>
+    </select>
+    <div class="input-group-append">
+      <label class="input-group-text" for="inputGroupSelect02">Product Type</label>
+    </div>
+  </div>
+</div>
+
+<div class="input-group mb-4 optionSelection">
+  <select class="custom-select start" id="quantity">
+    <option selected>How Many Would You Like...</option>
+    <option value="1">500</option>
+    <option value="2">1000</option>
+    <option value="3">2000</option>
+    <option value="4">2500</option>
+    <option value="5">5000</option>
+    <option value="6">10000</option>
+    <option value="7">20000</option>
+  </select>
+  <div class="input-group-append">
+    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+  </div>
+</div>
+
+<div class="input-group mb-4 optionSelection">
+  <select class="custom-select start businessCard" id="businessSize">
+    <option selected>What Size Would You Like...</option>
+    <option value="1">14pt C2S</option>
+    <option value="2">16pt C2S</option>
+    <option value="3">100# Linen</option>
+  </select>
+  <div class="input-group-append">
+    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+  </div>
+</div>
+
+<div class="input-group mb-4 optionSelection">
+  <select class="custom-select start flyer" id="flyerSize">
+    <option selected>What Size Would You Like...</option>
+    <option value="1">5.5" x 8.5"</option>
+    <option value="2">4.25" x 6"</option>
+    <option value="3">5" x 7"</option>
+    <option value="4">6.5" x 9"</option>
+    <option value="5">6" x 11"</option>
+  </select>
+  <div class="input-group-append">
+    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+  </div>
+</div>
+
+<div class="input-group mb-4 optionSelection">
+  <select class="custom-select start" id="shipping">
+    <option selected>Shipping Options...</option>
+    <option value="1">Next Day</option>
+    <option value="2">2-4 Business Days</option>
+    <option value="3">5" x 7"</option>
+    <option value="4">6.5" x 9"</option>
+    <option value="5">6" x 11"</option>
+  </select>
+  <div class="input-group-append">
+    <label class="input-group-text" for="inputGroupSelect02">Options</label>
+  </div>
+</div>
+
+
+<div class="input-group optionSelection">
+  <input type="text" placeholder="Current Estimate" class=" start form-control"
+    aria-label="Dollar amount (with dot and two decimal places)">
+  <div class="input-group-append">
+    <span class="input-group-text">$</span>
+    <span class="input-group-text">0.00</span>
+  </div>
+</div>
+</div> --}}

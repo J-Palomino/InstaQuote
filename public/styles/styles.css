@@ -3,8 +3,14 @@
 }
 
 body {
-  background-color: darkorange;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #d2691e;
   font-family: "Work Sans", sans-serif;
+}
+
+hr {
+  border-bottom: solid peru 2px;
 }
 
 #loginForm {
@@ -21,7 +27,308 @@ body {
   background: transparent;
 }
 
-.navbar{
-  border: 2px dotted rgb(212, 171, 83);
-  border-radius:10px;
+.inputs {
+  border: solid peru 4px;
+}
+
+#login {
+  background: peru;
+  border: solid peru 5px;
+}
+
+#login:hover {
+  background: #d2691e;
+}
+
+#modal {
+  width: 200px;
+}
+
+#modalHeader {
+  font-size: 30px;
+}
+
+/*Styling for home page*/
+/*======================================================================*/
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+  align-items: center;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  background-color: peru;
+  border-bottom: solid #d2691e 3px;
+  z-index: 4;
+}
+
+#home-container {
+  position: relative;
+  top: -10px;
+  margin-top: 10px;
+  background: grey;
+  border: solid peru 10px;
+  height: 600px;
+}
+
+.nav-link {
+  position: relative;
+  top: 10px;
+  width: 125px;
+  padding-bottom: 30px;
+  margin-right: 1px;
+  left: 70px;
+  z-index: 4;
+}
+
+#home-user-info {
+  position: absolute;
+  top: 120px;
+  left: 20px;
+  background: peru;
+  border: solid #d2691e 2px;
+  width: 275px;
+}
+
+#home-user-pic {
+  position: relative;
+  margin: 10px;
+  left: 35px;
+  width: 150px;
+  height: 150px;
+}
+
+#quick-selector {
+  background: peru;
+  border: solid #d2691e 2px;
+  position: absolute;
+  top: 120px;
+  right: 20px;
+}
+
+#select-list {
+  position: relative;
+  right: 20px;
+}
+
+.selector:hover {
+  cursor: pointer;
+  color: #ffffff;
+}
+
+/*Styling for order page*/
+
+.card-img-top {
+  height: 200px;
+  width: 281px;
+}
+
+.order-carousel {
+  z-index: 2;
+  margin-top: 20px;
+  border: solid #ffffff 5px;
+  background: peru;
+}
+
+.choice {
+  margin-top: 50px;
+}
+
+.order-icons {
+  position: relative;
+  left: 140px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.carousel-images {
+  height: 400px;
+  width: 100%;
+  margin: auto;
+}
+
+.carousel-text {
+  color: cyan;
+}
+
+#order-container {
+  background: grey;
+  border: solid peru 10px;
+}
+
+.order-image {
+  width: 325px;
+  height: 300px;
+  box-shadow: solid black 5px 5px;
+  border-radius: 50;
+}
+
+.card {
+  background: #ffffff;
+  box-shadow: 5px 5px black;
+  margin: 30px;
+}
+
+.orderModalImages {
+  position: relative;
+  left: 450px;
+  /* height: 300px;
+  width: 300px; */
+}
+
+.orderModalContent {
+  position: relative;
+  top: -300px;
+  height: 100px;
+}
+
+.front {
+  float: right;
+}
+
+.modal-content {
+  background-color: peru;
+}
+
+.form-group {
+  float: left;
+}
+
+#business-card-dropdown {
+  width: 400px;
+}
+
+.footer {
+  background: peru;
+  margin-top: 5px;
+  height: 100px;
+}
+
+/*MEDIA QUERIES*/
+
+@media only screen and (min-width: 360px) and (max-width: 479px) {
+  .order-carousel {
+    height: 200px;
+    width: 300px;
+  }
+  .carousel-images {
+    height: 190px;
+    width: 100%;
+  }
+  .order-icons {
+    position: relative;
+    left: 120px;
+  }
+  .modal {
+    width: 100%;
+  }
+  .navbar-toggler {
+    position: relative;
+    left: 265px;
+  }
+  .navbar-brand {
+    position: relative;
+    top: 40px;
+  }
+  .order-carousel {
+    right: -5px;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 719px) {
+  .order-carousel {
+    height: 200px;
+    width: 430px;
+  }
+  .carousel-images {
+    height: 190px;
+    width: 100%;
+  }
+  .navbar-toggler {
+    position: relative;
+    left: 400px;
+  }
+  .navbar-brand {
+    position: relative;
+    top: 40px;
+  }
+  .order-icons {
+    position: relative;
+    left: 180px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 1279px) {
+  .order-carousel {
+    height: 200px;
+    width: 670px;
+  }
+  .carousel-images {
+    height: 190px;
+    width: 100%;
+  }
+  .navbar-toggler {
+    position: relative;
+    left: 620px;
+  }
+  .navbar-brand {
+    position: relative;
+    top: 40px;
+  }
+  .order-icons {
+    position: relative;
+    left: 40px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1599px) {
+  .order-carousel {
+    height: 330px;
+    width: 1170px;
+  }
+  .carousel-images {
+    height: 320px;
+    width: 100%;
+  }
+  #order-container {
+    position: relative;
+    right: -5px;
+  }
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 1920px) {
+  .navbar {
+    width: 1600px;
+  }
+}
+.lds-hourglass {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-hourglass:after {
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  width: 0;
+  height: 0;
+  margin: 6px;
+  box-sizing: border-box;
+  border: 26px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-hourglass 1.2s infinite;
+}
+@keyframes lds-hourglass {
+  0% {
+    transform: rotate(0);
+    animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  50% {
+    transform: rotate(900deg);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  100% {
+    transform: rotate(1800deg);
+  }
 }
