@@ -112,7 +112,7 @@ function addOrder(order) {
 
   htmlString += "<h5 class='card-text'>" + order.product + "</h5>";
   htmlString +=
-    "<ul><li>Customer Total" + order.customerTotal + "</li></ul></div>";
+    "<ul><li>Customer Total: " + order.customerTotal + "</li></ul></div>";
   htmlString +=
     "<div class='col-2'><img style='width:100px;height:100px' src='/img/BusinessCard.jpg'></div>";
   htmlString += "</div></div></div>";
@@ -181,7 +181,7 @@ function dropdowns(id, data) {
     dropdown.attr("class", "custom-select");
     dropdown.attr("id", i);
     dropdown.css("class", "row");
-    
+
     form.append(dropdown);
     var label = $("<label>");
     label.attr("for", "custom-select");

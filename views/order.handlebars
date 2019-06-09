@@ -237,7 +237,7 @@
   </div>
   <!-- FIRST ROW-->
 
-  <div class="row page">
+  {{!-- <div class="row page">
     <div class="col-4 choice" data-id="digPrint">
       <div class='card mt-4'>
         <h3 class="card-title text-center">Digital Printing</h3>
@@ -345,142 +345,143 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
-<!-- END OF PRODUCT OPTIONS -->
-<!-- ================================================================================== -->
-
-
-
-
-<!-- ALL MODALS FOR ORDERS -->
-
-
-<!-- BUSINESS CARD MODAL -->
+  <!-- END OF PRODUCT OPTIONS -->
+  <!-- ================================================================================== -->
 
 
 
-<div class="modal fade bd-example-modal-lg" id="busCardModal" tabindex="-1" role="dialog"
-  aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
 
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="row">
-        <div class="modal-body">
-          <div class="col-6">
-            <img class="card-img-top orderModalImages" id="busImg" src="../img/BusinessCard.jpg">
-          </div>
+  <!-- ALL MODALS FOR ORDERS -->
 
 
-          <div class="col-6">
-            <form>
+  <!-- BUSINESS CARD MODAL -->
 
-              <div class="orderModalContent">
-                <div class="dropdown">
 
-                  <div class="form-group">
-                    <label for="standard"><strong>Standard
-                      </strong></label>
-                    <select class="custom-select" id="standard">
-                      <option selected>Choose One . . .</option>
-                      <option values="f76b1ef6-184b-4e0d-96fa-426fd7b3dd1a">Gloss - None</option>
-                      <option values="86172f87-0296-49dc-9b5b-87002a6c4ab7">Gloss - One Side</option>
-                      <option values="395fdc45-f6ea-4f7f-a809-2d054ac5bf73">Gloss - Both Sides</option>
-                    </select>
+
+  <div class="modal fade bd-example-modal-lg" id="busCardModal" tabindex="-1" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Create your own styled business card</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="row">
+          <div class="modal-body">
+            <div class="col-6">
+              <img class="card-img-top orderModalImages" id="busImg" src="../img/BusinessCard.jpg">
+            </div>
+
+
+            <div class="col-6">
+              <form>
+
+                <div class="orderModalContent">
+                  <div class="dropdown">
+
+                    <div class="form-group">
+                      <label for="standard"><strong>Standard
+                        </strong></label>
+                      <select class="custom-select" id="standard">
+                        <option selected>Choose One . . .</option>
+                        <option values="f76b1ef6-184b-4e0d-96fa-426fd7b3dd1a">Gloss - None</option>
+                        <option values="86172f87-0296-49dc-9b5b-87002a6c4ab7">Gloss - One Side</option>
+                        <option values="395fdc45-f6ea-4f7f-a809-2d054ac5bf73">Gloss - Both Sides</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <br>
-                <div class="dropdown">
+                  <br>
+                  <div class="dropdown">
 
-                  <div class="form-group">
-                    <label for="painted"><strong>Painted Edge
-                      </strong></label>
-                    <select class="custom-select" id="painted">
-                      <option selected>Choose One . . .</option>
-                      <option values="f42561c8-8f55-460c-be7a-551931c98bb5">All</option>
-                    </select>
+                    <div class="form-group">
+                      <label for="painted"><strong>Painted Edge
+                        </strong></label>
+                      <select class="custom-select" id="painted">
+                        <option selected>Choose One . . .</option>
+                        <option values="f42561c8-8f55-460c-be7a-551931c98bb5">All</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <br>
-                <div class="dropdown">
+                  <br>
+                  <div class="dropdown">
 
-                  <div class="form-group">
-                    <label for="suede"><strong>Suede
-                      </strong></label>
-                    <select class="custom-select" id="suede">
-                      <option selected>Choose One . . .</option>
-                      <option values="e10fbe35-2ed2-4f12-83cf-243d3d8b8135">Square Corners</option>
-                      <option values="ec0ee8c4-b542-4e48-bfc7-895203d9968f">Round Corners</option>
-                    </select>
+                    <div class="form-group">
+                      <label for="suede"><strong>Suede
+                        </strong></label>
+                      <select class="custom-select" id="suede">
+                        <option selected>Choose One . . .</option>
+                        <option values="e10fbe35-2ed2-4f12-83cf-243d3d8b8135">Square Corners</option>
+                        <option values="ec0ee8c4-b542-4e48-bfc7-895203d9968f">Round Corners</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <br>
-                <div class="dropdown">
+                  <br>
+                  <div class="dropdown">
 
-                  <div class="form-group">
-                    <label for="akua"><strong>Akuafoil
-                      </strong></label>
-                    <select class="custom-select" id="akua">
-                      <option selected>Choose One . . .</option>
-                      <option values="3e645657-f78a-49d1-a65b-34fbd7f0d087">Square Corners, Gloss - None</option>
-                      <option values="d1dc22c4-dd2e-4ea7-b45f-772cf1995bb0">Square Corners, Gloss - One Side</option>
-                      <option values="584065bf-5287-4bf9-b951-5459fddddc60">Square Corners, Gloss - Both Sides</option>
-                      <option values="eb531f3f-799d-4d51-b4e3-8697c1f8f375">Round Corners, Gloss - None</option>
-                      <option values="ef7d061d-d79b-4eb6-9937-2c55832e4cdc">Round Corners, Gloss - One Side</option>
-                      <option values="6cc1867d-f200-40e0-a3db-7a6e0f3cbc9d">Round Corners, Gloss - Both Sides</option>
-                    </select>
+                    <div class="form-group">
+                      <label for="akua"><strong>Akuafoil
+                        </strong></label>
+                      <select class="custom-select" id="akua">
+                        <option selected>Choose One . . .</option>
+                        <option values="3e645657-f78a-49d1-a65b-34fbd7f0d087">Square Corners, Gloss - None</option>
+                        <option values="d1dc22c4-dd2e-4ea7-b45f-772cf1995bb0">Square Corners, Gloss - One Side</option>
+                        <option values="584065bf-5287-4bf9-b951-5459fddddc60">Square Corners, Gloss - Both Sides
+                        </option>
+                        <option values="eb531f3f-799d-4d51-b4e3-8697c1f8f375">Round Corners, Gloss - None</option>
+                        <option values="ef7d061d-d79b-4eb6-9937-2c55832e4cdc">Round Corners, Gloss - One Side</option>
+                        <option values="6cc1867d-f200-40e0-a3db-7a6e0f3cbc9d">Round Corners, Gloss - Both Sides</option>
+                      </select>
+                    </div>
                   </div>
-                </div>
-                <br>
-            </form>
+                  <br>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="pageReload()">Close</button>
-      <button data-target="levelTwoModal" data-toggle="modal" type="button" class="btn btn-primary save">Save
-        changes</button>
-    </div>
-  </div>
-</div>
-
-
-<!-- NEW MODAL FOR SECOND LAYER -->
-<div class="modal" id="levelTwoModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-target="#business-card-modal" data-toggle="modal">Save
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="pageReload()">Close</button>
+        <button data-target="levelTwoModal" data-toggle="modal" type="button" class="btn btn-primary save">Save
           changes</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
-</div>
 
 
-<!-- copied-->
+  <!-- NEW MODAL FOR SECOND LAYER -->
+  <div class="modal" id="levelTwoModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-target="#business-card-modal" data-toggle="modal">Save
+            changes</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- copied-->
 
 
 
-{{!-- 
+  {{!-- 
 <div class="modal fade bd-example-modal-lg" id="" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-lg">
