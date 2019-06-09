@@ -1,8 +1,8 @@
+/* eslint-disable camelcase */
 /* eslint-disable prettier/prettier */
 //This is commenting out the variables used inside of the starter files that I am not using
 
 //user registration function upon click that runs the validation for the new user
-var orderSent = false;
 
 $(".register").click(function(event) {
   event.preventDefault();
@@ -90,6 +90,7 @@ function validateRegister(first, second) {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 function pageReload() {
   location.reload();
 }
