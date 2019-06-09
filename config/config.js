@@ -11,13 +11,8 @@ module.exports = {
   },
   test: {
     username: "root",
-<<<<<<< HEAD
     password: "password",
     database: "exampledb",
-=======
-    password: "Cd309754321",
-    database: "graphics_db",
->>>>>>> 3b3da306bbc2e2cc9fdbbe1d88f57a9809446215
     host: "localhost",
     dialect: "mysql",
     logging: false

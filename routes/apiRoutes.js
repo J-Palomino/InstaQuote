@@ -16,13 +16,8 @@ module.exports = function(app) {
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(req.body.password, salt);
     db.User.create({
-<<<<<<< HEAD
-      name: req.body.name,
-      password: req.body.password
-=======
       name: req.body.userName,
       password: hash
->>>>>>> 3b3da306bbc2e2cc9fdbbe1d88f57a9809446215
     }).then(function(dbExample) {
       //res.render("example", dbExample);
       res.json(dbExample);
